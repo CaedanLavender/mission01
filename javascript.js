@@ -8,28 +8,28 @@
 
 //  Function that returns an array of classes by passing a class name
 function getClassList(classKey) {
-    return document.getElementsByClassName(classKey);
+	return document.getElementsByClassName(classKey);
 }
 
 // Returns the user to the top of the page
 function scrollToTop() {
-    window.scrollTo({
-        top: 0,
-        behavior: 'smooth'
-    });
+	window.scrollTo({
+		top: 0,
+		behavior: 'smooth'
+	});
 }
 
 // Scrolls to a particular section based on an elements ID (to be passed into function)
 function scrollToSection(elementID) {
-    document.getElementById(elementID).scrollIntoView({
-        behavior: 'smooth'
-    });
+	document.getElementById(elementID).scrollIntoView({
+		behavior: 'smooth'
+	});
 }
 
 // List of functions to be run on each scroll
 function scrollRoutine() {
-    parallaxRoutine()
-    toggleTopButtonVisibility();
+	parallaxRoutine()
+	toggleTopButtonVisibility();
 }
 
 // ================================
@@ -40,13 +40,13 @@ function scrollRoutine() {
 // Classes are used so as to allow for a transition (may remove in favor of some vanilla JS to handle the transitions in the future)
 // TODO need to split into two functions, one to assign the class, and the other to detect which class should be applied
 function toggleTopButtonVisibility() {
-    if (window.scrollY > window.innerHeight / 2) {
-        topButton.classList.add("show");
-        topButton.classList.remove("hide");
-    } else {
-        topButton.classList.remove("show");
-        topButton.classList.add("hide");
-    }
+	if (window.scrollY > window.innerHeight / 2) {
+		topButton.classList.add("show");
+		topButton.classList.remove("hide");
+	} else {
+		topButton.classList.remove("show");
+		topButton.classList.add("hide");
+	}
 }
 
 // ================================
@@ -55,26 +55,26 @@ function toggleTopButtonVisibility() {
 
 //  A routine that runs to update all elements of class 'parallax' with their new background image positions based on how far down the page the user has scrolled
 function parallaxRoutine() {
-    // console.log(ParallaxList);
-    // only runs at certain width — primarily because my parallax function in it's current iteration doesn't look great on tall skinny display sizes :p
-    for (element of ParallaxList) {
-        if (window.innerWidth > 1200) {
-            parallaxAdjust(element, 3);
-        } else {
-            element.style.backgroundPosition = 'center';
-        }
-    }
+	// console.log(ParallaxList);
+	// only runs at certain width — primarily because my parallax function in it's current iteration doesn't look great on tall skinny display sizes :p
+	for (element of ParallaxList) {
+		if (window.innerWidth > 1200) {
+			parallaxAdjust(element, 3);
+		} else {
+			element.style.backgroundPosition = 'center';
+		}
+	}
 }
 
 // Determines the appropriate background position based on the target element, rate, and the user's scroll position on the page
 function parallaxAdjust(element, rate) {
-    let givenPosition = element.getBoundingClientRect().y / rate;
-    element.style.backgroundPositionY = (`${givenPosition}px`);
+	let givenPosition = element.getBoundingClientRect().y / rate;
+	element.style.backgroundPositionY = (`${givenPosition}px`);
 }
 
 // Fakes a 'fixed' background to overcome iOS not doing background-attachment: fixed correctly
 function backgroundPsuedoFixed(element) {
-    element.style.backgroundPositionY = window.scrollY;
+	element.style.backgroundPositionY = window.scrollY;
 }
 
 // ================================
@@ -93,4 +93,3 @@ parallaxRoutine();
 
 // Event Listener that triggers the scrollRoutine function every time the user scrolls
 window.addEventListener("scroll", scrollRoutine);
-

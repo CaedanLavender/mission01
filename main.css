@@ -1,37 +1,50 @@
+
+/*
+=======================================
+	Fonts
+=======================================
+*/
+
 @import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300;400;500;600;700&display=swap');
 
+/*
+=======================================
+	Variable Declarations
+=======================================
+*/
+
 :root {
-  /* Accent Color */
-  --accentColor: #fa5cd5;
-  --accentColorLight: #fa9de4;
-  --accentColorSuperLight: #fa9ee4;
-  --accentColorTransparent: rgba(250, 157, 228, 0.4);
+	/* Accent Color */
+	--accentColor: #fa5cd5;
+	--accentColorLight: #fa9de4;
+	--accentColorSuperLight: #fa9ee4;
+	--accentColorTransparent: rgba(250, 157, 228, 0.4);
 
 
-  /* Anti Color */
-  --antiColor: #ffde49;
-  --antiColorLight: #fce47d;
-  --antiColorSuperLight: #97ffda;
-  --antiColorTransparent: rgba(252, 228, 125, 0.2);
+	/* Anti Color */
+	--antiColor: #ffde49;
+	--antiColorLight: #fce47d;
+	--antiColorSuperLight: #fceca8;
+	--antiColorTransparent: rgba(252, 228, 125, 0.2);
 
-  /* Shadow Color */
-  --darkShadow: rgba(119, 119, 119, 0.2);
+	/* Shadow Color */
+	--darkShadow: rgba(119, 119, 119, 0.2);
 
-  /* Neutral Colors */
-  --darkColor: #141e28;
-  --lightColor: whitesmoke;
+	/* Neutral Colors */
+	--darkColor: #141e28;
+	--lightColor: whitesmoke;
 
-  /* Global widths */
-  --contentLimit: 1200px;
-  --eventHorizon: 2000px;
+	/* Global widths */
+	--contentLimit: 1200px;
+	--eventHorizon: 2000px;
 
-  /* Fonts */
-  --headingFont: 'Signika', 'monospaced';
-  --bodyFont: 'Roboto';
-  font-size: 1.1em;
-  font-family: var(--bodyFont);
+	/* Fonts */
+	--headingFont: 'Signika', 'monospaced';
+	--bodyFont: 'Roboto';
+	font-family: var(--bodyFont);
+	font-size: 1.1em;
 }
 
 ::selection {
@@ -46,71 +59,81 @@
 /* Resets global margin and padding to be 0 — allows for greater control, although I need to declare a few things to get started, the compromise is worth it :) */
 
 * {
-	box-sizing: border-box;
-	padding: 0;
 	margin: 0;
+	padding: 0;
+	box-sizing: border-box;
 }
 
-/* Global tag property declarations — to counter the above '*' style */
+/*
+=======================================
+	Global Tag Declarations
+=======================================
+*/
 
-h1, h2, h3, h4, h5 {
-	margin: 0.75em 0 0.25em;
+
+/* Headings */
+
+:is(h1, h2, h3, h4, h5) {
+	margin: 0.75em 0 0;
 	padding: 0.25em 0;
 	font-family: var(--headingFont);
 }
 
 :is(h1, h2, h3, h4, h5) a {
-	/* text-decoration: none; */
 	color: var(--darkColor);
 	transition: color 0.3s ease 0s;
 }
 
 :is(h1, h2, h3, h4, h5) a:hover {
-	/* text-decoration: none; */
 	color: var(--accentColor);
 }
 
 h1 {
 	font-size: 4rem;
-
+	font-weight: 700;
 }
 
 h2 {
 	font-size: 3rem;
+	font-weight: 600;
 }
 
 h3 {
 	font-size: 2rem;
+	font-weight: 600;
 }
 
 h4 {
 	font-size: 1.5rem;
+	/* font-family: var(--bodyFont); */
+	font-weight: 600;
 }
 
 h5 {
 	font-size: 1.25rem;
+	font-family: var(--bodyFont);
 }
 
-ul {
-	margin: 1em 0;
-	padding-left: 3ch;
-}
-
-li {
-	line-height: 1.5rem;
-	padding: 0.25rem 0;
-}
-
-li ul {
-	margin: 0;
-}
+/* Paragraph */
 
 p {
-	
 	margin: 1em 0;
 	line-height: 1.5em;
-	/* display: inline; */
+	word-spacing: 0.1rem;
+	font-weight: 300;
 }
+
+.subTitle {
+	font-size: 1.5rem;
+	font-weight: 200;
+	font-style: italic;
+}
+
+.textCenter {
+	text-align: center;
+}
+
+/* Links */
 
 a {
 	color: var(--darkColor);
@@ -118,18 +141,35 @@ a {
 }
 
 a:hover {
-	color: var(--accentColor);
+    color: var(--accentColor);
 }
 
+/* Lists */
 
-/* Page structure */
+ul {
+	margin: 1em 0;
+	padding-left: 3ch;
+}
 
+li {
+	padding: 0.25rem 0;
+}
+
+li ul {
+	margin: 0;
+}
+
+/*
+=======================================
+	Page Structure - High Level
+=======================================
+*/
 
 body {
-	background-color: var(--lightColor);
-	box-shadow: var(--darkShadow) 0px 0px 25px;
 	margin: 0 auto;
 	max-width: var(--eventHorizon);
+	background-color: var(--lightColor);
+	box-shadow: var(--darkShadow) 0px 0px 25px;
 }
 
 header {
@@ -138,31 +178,61 @@ header {
 }
 
 main {
-	/* max-width: var(--contentLimit); */
 	margin: 0 auto;
-}
-
-.superSection {
-	width: 100%;
 	padding: 0;
 }
 
+footer {
+	background-color: var(--darkColor);
+	padding: 5em 1em;
+	color: var(--lightColor);
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+/*
+=======================================
+	Section strucutre
+=======================================
+*/
+
+.superSection {
+	padding: 0;
+	width: 100%;
+}
+
+section {
+	margin: 0 auto;
+	padding: 10em 2em 20em;
+	max-width: var(--contentLimit);
+}
+
+/*
+=======================================
+	Section Tweaks
+=======================================
+*/
+
+/* Parallax */
 
 .parallax {
 	background-position: top;
+	background-position-y: 0px;
 	background-size: auto 150vh;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
-	background-position-y: 0px;
 }
 
 .para1 {
-	background-image: url('https://images.unsplash.com/photo-1604542031658-5799ca5d7936');
+	background-image: url('images/mountains.jpg');
 }
 
 .para2 {
-	background-image: url('https://images.unsplash.com/photo-1600456548090-7d1b3f0bbea5');
+	background-image: url('images/telescope.jpg');
 }
+
+/* Section coloring */
 
 .sectionColor1 {
 	background-color: var(--darkColor);
@@ -184,13 +254,7 @@ main {
 	background-color: var(--antiColorLight);
 }
 
-
-
-section {
-	padding: 10em 2em 20em;
-	max-width: var(--contentLimit);
-	margin: 0 auto;
-}
+/* Welcome Section */
 
 #welcome p {
 	font-size: 1.75rem;
@@ -201,22 +265,16 @@ section {
 	font-style: italic;
 }
 
-@keyframes fadeIn {
-	from {
-		opacity: 0;
-	}
-	to {
-		opacity: 1;
-	}
-}
-
+/* To animate "Scroll to continue..." */
 @keyframes phase {
 	0% {
 		opacity: 0;
 	}
+
 	50% {
 		opacity: 1;
 	}
+
 	100% {
 		opacity: 0;
 	}
@@ -227,14 +285,11 @@ section {
 	animation-timing-function: ease-in-out;
 }
 
+
 .subSection {
 	display: flex;
 	justify-content: space-between;
 }
-/* 
-.subSection > * {
-	display: block;
-} */
 
 .subSection p {
 	flex: 60%;
@@ -245,178 +300,197 @@ section {
 	width: 300px;
 	flex: 30%;
 	flex-grow: 0;
-	/* flex: 40%; */
-	/* width: 300px; */
-	/* text-align: right; */
-}
-
-.highlightText {
-	color: var(--antiColor);
 }
 
 
-/* Navigation bar */
+/*
+=======================================
+	Navigation Bar
+=======================================
+*/
 
 nav {
-	max-width: var(--contentLimit);
 	margin: 0 auto;
+	padding: 1.5em;
 	display: flex;
-	/* display: -webkit-flex; */
 	justify-content: space-between;
 	align-items: center;
+	max-width: var(--contentLimit);
 	height: 100%;
 	background-color: var(--darkColor);
 	font-size: 1.2em;
 	cursor: default;
-	padding: 1.5em;
 }
 
-nav ul {
-	padding: 0;
+nav ul {   
 	margin: 0;
+	padding: 0;
 	display: flex;
-	/* display: -webkit-flex; */
-	gap: 0.75em;
+	gap: 1em;
 }
 
 nav li {
+	padding: 0.5em;
 	display: inline;
-	padding: 0.75em;
-	transition: all 0.3s ease 0s;
-	color: var(--lightColor);
-	text-decoration: none;
-	border: 1px solid none;
+	border: 3px solid transparent;
 	border-radius: 3px;
-	cursor: pointer;
-	text-transform: uppercase;
-	font-weight: 500;
+	color: var(--lightColor);
 	font-family: var(--headingFont);
+	font-weight: 500;
+	text-transform: uppercase;
+	text-decoration: none;
+	cursor: pointer;
+	transition: all 0.3s ease 0s;
+	transition-property: border, color;
 }
 
 /* '>' causes the style to be applied to any descendant 'a' vs just the direct children */
 nav > a {
-	/* transition: all 0.3s ease 0s; */
 	color: var(--lightColor);
 	text-decoration: none;
 }
 
 nav li:hover {
-	border-color: var(--accentColor);
-	color:var(--lightColor);
-	background-color: var(--accentColor);
+	border-bottom: 3px solid var(--accentColor);
+	color: var(--accentColor);
 }
 
-.buttoncontainer {
-	z-index: 99;
-	position: fixed;
-	top: 80vh;
-	right: 3vw;
-}
-
-.buttoncontainer > a {
-	text-decoration: none;
-	color: white;
-	width: 100px;
-	text-align: center;
-	cursor: pointer;
-}
-
-.buttoncontainer div {
-	background-color: var(--accentColorLight);
-	padding: 20px;
-	border-radius: 3px;
-	box-shadow: rgba(119, 119, 119, 0.2) 0px 0px 25px;
-	transition: background-color 0.3s ease 0s;
-  
-}
-
-.buttoncontainer div:hover {
-	background-color: var(--accentColor);
-	box-shadow: var(--accentColorTransparent) 0px 0px 25px;
-}
-
-/* TODO Change button configuration to use a div with a span, apply class to div instead of inner */
-
-.hide {
-	opacity: 0;
-	visibility: hidden;
-	transition: opacity 0.3s ease-in-out 0s;
-}
-
-.show {
-	opacity: 1;
-	visibility: visible;
-	transition: opacity 0.3s ease-in-out 0s;
-}
-
+/*
+=======================================
+	Navigation Button
+=======================================
+*/
 
 .button {
 	padding: 0.75em 2em;
-	background-color: var(--accentColorLight);
 	border: none;
 	border-radius: 3px;
-	transition: all 0.3s ease 0s;
+	background-color: var(--accentColorLight);
 	color: var(--darkColor);
-	font-weight: 500;
+	font-family: var(--headingFont);
 	font-size: 1em;
+	font-weight: 500;
+	transition: all 0.2s ease 0s;
+	transition-property: background-color, box-shadow, transform;
 }
 
 .button:hover {
 	background-color: var(--antiColor);
 	box-shadow: var(--antiColorTransparent) 0px 0px 25px;
 	cursor: pointer;
+	transform: scale(1.05);
 }
 
-.textCenter {
-	text-align: center;
+/*
+=======================================
+	Back to top button
+=======================================
+*/
+
+.buttoncontainer {
+	z-index: 99;
+	position: fixed;
+	bottom: 10vh;
+	right: 3vw;
 }
 
-.cardHeaderContainer{
-	text-align: center;
-}
-
-.cardContainer {
+#topButton {
+	height: 80px;
+	width: 80px;
+	background-color: var(--accentColorLight);
+	box-shadow: var(--darkShadow) 0px 0px 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
+	border-radius: 50%;
+	color: var(--lightColor);
+	cursor: pointer;
+	transition: all 0.2s ease 0s;
+	transition-property: box-shadow, background-color, transform, opacity, visibility;
+}
+
+#topButton:hover {
+	box-shadow: var(--antiColorTransparent) 0px 0px 25px;
+	background-color: var(--antiColor);
+	transform: scale(1.1);
+}
+
+#topButton:hover img {
+	filter: none;
+}
+
+#topButton img {
+	display: block;
+	height: 75%;
+	filter: invert();
+}
+
+.hide {
+	opacity: 0;
+	visibility: hidden;
+}
+
+.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+/*
+=======================================
+	Cards
+=======================================
+*/
+
+
+/* .cardHeaderContainer {
+	text-align: center;
+} */
+
+.cardContainer {
 	padding: 50px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
 	gap: 50px;
 	width: 100%;
 }
 
 .card {
-	color: var(--darkColor);
+	padding: 1em;
 	box-sizing: border-box;
 	width: 100%;
-	box-shadow: rgba(119, 119, 119, 0.2) 0px 0px 25px;
 	height: 400px;
-	background-color:var(--lightColor);
 	border: 2px solid white;
 	border-radius: 6px;
-	padding: 1em;
+	background-color: var(--lightColor);
+	box-shadow: var(--darkShadow) 0px 0px 25px;
+	color: var(--darkColor);
 	cursor: default;
 	transition: all 0.15s ease 0s;
+	transition-property: transform, box-shadow;
 }
 
 .card:hover {
-	transition: all 0.15s ease 0s;
-	/* box-shadow: var(--accentColorTransparent) 0px 0px 50px; */
-	/* border-color: var(--accentColorTransparent); */
 	transform: scale(1.05);
-	box-shadow: rgba(119, 119, 119, 0.2) 0px 0px 50px 10px;
+	box-shadow: var(--darkShadow) 0px 0px 50px 10px;
 }
 
 .card h3 {
-	/* text-align: center; */
 	margin-top: 0;
 }
 
+/*
+=======================================
+	Form
+=======================================
+*/
+
 .formSection {
+	margin: 3em 0;
 	display: flex;
 	justify-content: start;
 	align-items: center;
-	gap: 25px;
-	margin: 50px 0;
+	gap: 2em;
 }
 
 .formPair {
@@ -426,25 +500,28 @@ nav li:hover {
 }
 
 .formPair label {
-	padding: 10px;
+	padding: 1em;
 }
 
-input, textarea{
+input,
+textarea {
 	font-family: var(--bodyFont);
 	font-size: 1rem;
 	border: 1px solid white;
 	outline: none;
 	transition: border 0.3s ease 0s;
-	padding: 15px 10px;
+	padding: 1em;
 	width: 100%;
 	resize: none;
 }
 
-input:hover, textarea:hover {
+input:hover,
+textarea:hover {
 	border: 1px solid var(--accentColorLight);
 }
 
-input:focus, textarea:focus {
+input:focus,
+textarea:focus {
 	border: 1px solid var(--accentColorLight);
 	box-shadow: var(--accentColorTransparent) 0px 0px 10px;
 }
@@ -454,72 +531,46 @@ input[type=submit] {
 	background-color: var(--accentColorLight);
 	width: 150px;
 	transition: all 0.3s ease 0s;
-	box-shadow: none;
+	transition-property: border, background-color;
+	font-weight: 500;
+	font-family: var(--headingFont);
+	font-size: 1.2rem;
+	border-radius: 3px;
 }
 
 input[type=submit]:hover {
-	/* background-color: var(--accentColorLight); */
-	border: 1px solid var(--accentColor);
-	background-color: var(--accentColor);
+	border: 1px solid var(--antiColorLight);
+	background-color: var(--antiColor);
 	cursor: pointer;
 }
 
 input[type=submit]:focus {
-	box-shadow: var(--accentColorTransparent) 0px 0px 50px;
-	border: 1px solid var(--accentColor)
+	box-shadow: var(--antiColorLight) 0px 0px 10px;
+	border: 1px solid var(--antiColor);
+	background-color: var(--antiColor);
 }
 
 
-textarea[id="message"]{
+textarea[id="message"] {
 	font-family: var(--bodyFont);
 	width: 100%;
 	height: 10em;
 	vertical-align: top;
 }
 
-/* FOOT */
-
-footer {
-	background-color: var(--darkColor);
-	height: 200px;
-	padding: 10px 10px;
-	color: var(--accentColor);
-	display: flex;
-	justify-content: space-evenly;
-	align-items: center;
-}
-
-@media screen and (max-width: 1200px) {
-	.cardContainer {
-		/* flex-wrap: wrap; */
-		flex-direction: column;
-	}
-
-	.card {
-		max-width: 350px;
-	}
-
-	.formSection {
-		flex-direction: column;
-		align-items: start;
-	}
-
-	input:not(input[type=submit]) {
-		width: 60%;
-		min-width: 350px;
-	}
-
-	textarea[id="message"]{
-		width: 100%;
-		height: 10em;
-		vertical-align: top;
-	}
-
-}
+/*
+=======================================
+	Media Queries
+=======================================
+*/
 
 @media screen and (max-width: 500px) {
 	.buttoncontainer {
-		top: 75vh;
+		bottom: 6vh;
+	}
+
+    footer {
+		flex-direction: column;
 	}
 }
 
@@ -543,21 +594,10 @@ footer {
 	nav li:hover {
 		background-color: transparent;
 		color: var(--accentColor);
+	}
+
 }
 
-	.buttoncontainer {
-		right: 5vw;
-		width: min-content;
-	}
-	
-}
-
-@media screen and (max-width: 500px) {
-	footer {
-		flex-direction: column;
-	}
-	
-}
 
 @media screen and (max-width: 1000px) {
 	.subSection {
@@ -570,18 +610,30 @@ footer {
 		height: 300px;
 		flex-grow: 1;
 	}
-	
 }
 
 @media screen and (max-width: 1200px) {
-	.parallax {
-		background-size: cover;
+	.cardContainer {
+		flex-direction: column;
 	}
-}
 
-@media screen and (min-width: 2000px) {
-	/* :root {
-		font-size: 1.1em;
-	} */
-	
+	.card {
+		max-width: 350px;
+	}
+
+	.formSection {
+		flex-direction: column;
+		align-items: start;
+	}
+
+	input:not(input[type=submit]) {
+		width: 60%;
+		min-width: 350px;
+	}
+
+	textarea[id="message"] {
+		width: 100%;
+		height: 10em;
+		vertical-align: top;
+	}
 }
