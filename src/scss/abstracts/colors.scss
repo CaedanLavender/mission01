@@ -1,0 +1,14 @@
+$accent: #fa5cd5;
+$accent-light: lighten($accent, 15%);
+$accent-superLight: lighten($accent, 20%);
+$accent-light-transparent: rgba($accent-light, 0.4);
+
+$anti: #ffde49;
+$anti-light: lighten($anti, 15%);
+$anti-superLight: lighten($anti, 20%);
+$anti-light-transparent: rgba($anti-light, 0.4);
+
+$dark: #141e28;
+$dark-shadow: rgba($dark, 0.2);
+
+$light: whitesmoke;
