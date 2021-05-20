@@ -93,3 +93,5 @@ parallaxRoutine();
 
 // Event Listener that triggers the scrollRoutine function every time the user scrolls
 window.addEventListener("scroll", scrollRoutine);
+
+console.log("this ran");
