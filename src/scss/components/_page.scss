@@ -1,0 +1,156 @@
+@use "../abstracts" as *;
+
+body {
+	margin: 0 auto;
+	max-width: $size-eventHorizon;
+	background-color: $c-light;
+	box-shadow: $c-dark-shadow 0px 0px 25px;
+}
+
+header {
+	background-color: $c-dark;
+	box-shadow: $c-dark-shadow 0px 0px 25px;
+}
+
+main {
+	margin: 0 auto;
+	padding: 0;
+}
+
+footer {
+	background-color: $c-dark;
+	padding: 5em 1em;
+	color: $c-light;
+	display: flex;
+	justify-content: space-evenly;
+	align-items: center;
+}
+
+/*
+=======================================
+	Section strucutre
+=======================================
+*/
+
+.superSection {
+	padding: 0;
+	width: 100%;
+}
+
+section {
+	margin: 0 auto;
+	padding: 10em 2em 20em;
+	max-width: $size-contentLimit;
+}
+
+.subSection {
+	display: flex;
+	justify-content: space-between;
+	p {
+		flex: 60%;
+		flex-grow: 0;		
+	}
+	img {
+		width: 300px;
+		flex: 30%;
+		flex-grow: 0;
+	}
+}
+
+/* Section coloring */
+
+.sectionColor1 {
+	background-color: $c-dark;
+}
+
+.whiteText {
+	color: $c-light;
+	a {
+		color: $c-light;
+	}
+	::selection {
+		color: $c-dark;
+	}
+}
+
+.sectionColor2 {
+	background-color: $c-anti-light;
+}
+
+
+/* Welcome Section */
+
+#welcome {
+	p {
+		font-size: 1.75rem;
+		font-style: italic;
+	}
+	h1 {
+		font-style: italic;
+	}
+}
+
+#scrollPrompt {
+	animation: phase 2s infinite;
+	animation-timing-function: ease-in-out;
+}
+
+/*
+=======================================
+	Cards
+=======================================
+*/
+
+.cardContainer {
+	padding: 50px 0;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	gap: 50px;
+	width: 100%;
+}
+
+.card {
+	padding: 1em;
+	box-sizing: border-box;
+	width: 100%;
+	height: 400px;
+	border: 2px solid white;
+	border-radius: 6px;
+	background-color: $c-light;
+	box-shadow: $c-dark-shadow 0px 0px 25px;
+	color: $c-dark;
+	cursor: default;
+	transition: all 0.15s ease 0s;
+	transition-property: transform, box-shadow;
+	&:hover {
+		transform: scale(1.05);
+		box-shadow: $c-dark-shadow 0px 0px 50px 10px;
+	}
+	h3 {
+		margin-top: 0;
+	}
+}
+
+
+/*
+=======================================
+	Parallax
+=======================================
+*/
+
+.parallax {
+	background-position: top;
+	background-position-y: 0px;
+	background-size: auto 150vh;
+	background-attachment: fixed;
+	background-repeat: no-repeat;
+}
+
+.para1 {
+	background-image: url('../images/mountains.jpg');
+}
+
+.para2 {
+	background-image: url('../images/telescope.jpg');
+}
