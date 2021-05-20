@@ -2,15 +2,7 @@
 @use "abstracts/colors.scss" as c;
 @use "abstracts/fonts.scss" as f;
 @use "abstracts/sizes.scss" as size;
-/*
-=======================================
-	Fonts
-=======================================
-*/
 
-@import url('https://fonts.googleapis.com/css2?family=Fira+Code:wght@300;400;500;600;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Lato:ital,wght@0,100;0,300;0,400;0,700;0,900;1,100;1,300;1,400;1,700;1,900&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&family=Signika:wght@300;400;500;600;700&display=swap');
 
 /*
 =======================================
@@ -18,49 +10,17 @@
 =======================================
 */
 
-:root {
-	/* Accent Color */
-	--accentColor: #fa5cd5;
-	--accentColorLight: #fa9de4;
-	--accentColorSuperLight: #fa9ee4;
-	--accentColorTransparent: rgba(250, 157, 228, 0.4);
-
-
-	/* Anti Color */
-	--antiColor: #ffde49;
-	--antiColorLight: #fce47d;
-	--antiColorSuperLight: #fceca8;
-	--antiColorTransparent: rgba(252, 228, 125, 0.2);
-
-	/* Shadow Color */
-	--darkShadow: rgba(119, 119, 119, 0.2);
-
-	/* Neutral Colors */
-	--darkColor: #141e28;
-	--lightColor: whitesmoke;
-
-	/* Global widths */
-	--contentLimit: 1200px;
-	--eventHorizon: 2000px;
-
-	/* Fonts */
-	--headingFont: 'Signika', 'monospaced';
-	--bodyFont: 'Roboto';
-	font-family: var(--bodyFont);
-	font-size: 1.1em;
-}
+// :root {
+// 	/* Global widths */
+// 	--contentLimit: 1200px;
+// 	--eventHorizon: 2000px;
+// }
 
 ::selection {
-	background: var(--antiColorLight);
-}
-
-/* This class applys some text to the element containing Lorem Ipsum — saves having to type it into each element manually wherever I want it */
-.lorem::after {
-	content: "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.";
+	background: c.$anti-light;
 }
 
 /* Resets global margin and padding to be 0 — allows for greater control, although I need to declare a few things to get started, the compromise is worth it :) */
-
 * {
 	margin: 0;
 	padding: 0;
@@ -79,11 +39,11 @@
 :is(h1, h2, h3, h4, h5) {
 	margin: 0.75em 0 0;
 	padding: 0.25em 0;
-	font-family: var(--headingFont);
+	font-family: f.$heading;
 }
 
 :is(h1, h2, h3, h4, h5) a {
-	color: var(--darkColor);
+	color: c.$dark;
 	transition: color 0.3s ease 0s;
 }
 
@@ -108,13 +68,13 @@ h3 {
 
 h4 {
 	font-size: 1.5rem;
-	/* font-family: var(--bodyFont); */
+	/* font-family: f.$body; */
 	font-weight: 600;
 }
 
 h5 {
 	font-size: 1.25rem;
-	font-family: var(--bodyFont);
+	font-family: f.$body;
 }
 
 /* Paragraph */
@@ -139,7 +99,7 @@ p {
 /* Links */
 
 a {
-	color: var(--darkColor);
+	color: c.$dark;
 	transition: color 0.3s ease 0s;
 }
 
@@ -170,14 +130,14 @@ li ul {
 
 body {
 	margin: 0 auto;
-	max-width: var(--eventHorizon);
-	background-color: var(--lightColor);
+	max-width: size.$eventHorizon;
+	background-color: c.$light;
 	box-shadow: var(--darkShadow) 0px 0px 25px;
 }
 
 header {
-	background-color: var(--darkColor);
-	box-shadow: var(--darkShadow) 0px 0px 25px;
+	background-color: c.$dark;
+	box-shadow: c.$dark-shadow 0px 0px 25px;
 }
 
 main {
@@ -186,9 +146,9 @@ main {
 }
 
 footer {
-	background-color: var(--darkColor);
+	background-color: c.$dark;
 	padding: 5em 1em;
-	color: var(--lightColor);
+	color: c.$light;
 	display: flex;
 	justify-content: space-evenly;
 	align-items: center;
@@ -208,7 +168,7 @@ footer {
 section {
 	margin: 0 auto;
 	padding: 10em 2em 20em;
-	max-width: var(--contentLimit);
+	max-width: size.$contentLimit;
 }
 
 /*
@@ -238,23 +198,23 @@ section {
 /* Section coloring */
 
 .sectionColor1 {
-	background-color: var(--darkColor);
+	background-color: c.$dark;
 }
 
 .whiteText {
-	color: var(--lightColor);
+	color: c.$light;
 }
 
 .whiteText a {
-	color: var(--lightColor);
+	color: c.$light;
 }
 
 .whiteText ::selection {
-	color: var(--darkColor);
+	color: c.$dark;
 }
 
 .sectionColor2 {
-	background-color: var(--antiColorLight);
+	background-color: c.$anti-light;
 }
 
 /* Welcome Section */
@@ -318,9 +278,9 @@ nav {
 	display: flex;
 	justify-content: space-between;
 	align-items: center;
-	max-width: var(--contentLimit);
+	max-width: size.$contentLimit;
 	height: 100%;
-	background-color: var(--darkColor);
+	background-color: c.$dark;
 	font-size: 1.2em;
 	cursor: default;
 }
@@ -337,8 +297,8 @@ nav li {
 	display: inline;
 	border: 3px solid transparent;
 	border-radius: 3px;
-	color: var(--lightColor);
-	font-family: var(--headingFont);
+	color: c.$light;
+	font-family: f.$heading;
 	font-weight: 500;
 	text-transform: uppercase;
 	text-decoration: none;
@@ -349,7 +309,7 @@ nav li {
 
 /* '>' causes the style to be applied to any descendant 'a' vs just the direct children */
 nav > a {
-	color: var(--lightColor);
+	color: c.$light;
 	text-decoration: none;
 }
 
@@ -368,9 +328,9 @@ nav li:hover {
 	padding: 0.75em 2em;
 	border: none;
 	border-radius: 3px;
-	background-color: var(--accentColorLight);
-	color: var(--darkColor);
-	font-family: var(--headingFont);
+	background-color: c.$accent-light;
+	color: c.$dark;
+	font-family: f.$heading;
 	font-size: 1em;
 	font-weight: 500;
 	transition: all 0.2s ease 0s;
@@ -378,8 +338,8 @@ nav li:hover {
 }
 
 .button:hover {
-	background-color: var(--antiColor);
-	box-shadow: var(--antiColorTransparent) 0px 0px 25px;
+	background-color: c.$anti;
+	box-shadow: c.$anti-light-transparent 0px 0px 25px;
 	cursor: pointer;
 	transform: scale(1.05);
 }
@@ -400,21 +360,21 @@ nav li:hover {
 #topButton {
 	height: 80px;
 	width: 80px;
-	background-color: var(--accentColorLight);
-	box-shadow: var(--darkShadow) 0px 0px 25px;
+	background-color: c.$accent-light;
+	box-shadow: c.$dark-shadow 0px 0px 25px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
 	border-radius: 50%;
-	color: var(--lightColor);
+	color: c.$light;
 	cursor: pointer;
 	transition: all 0.2s ease 0s;
 	transition-property: box-shadow, background-color, transform, opacity, visibility;
 }
 
 #topButton:hover {
-	box-shadow: var(--antiColorTransparent) 0px 0px 25px;
-	background-color: var(--antiColor);
+	box-shadow: c.$anti-light-transparent 0px 0px 25px;
+	background-color: c.$anti;
 	transform: scale(1.1);
 }
 
@@ -465,9 +425,9 @@ nav li:hover {
 	height: 400px;
 	border: 2px solid white;
 	border-radius: 6px;
-	background-color: var(--lightColor);
-	box-shadow: var(--darkShadow) 0px 0px 25px;
-	color: var(--darkColor);
+	background-color: c.$light;
+	box-shadow: c.$dark-shadow 0px 0px 25px;
+	color: c.$dark;
 	cursor: default;
 	transition: all 0.15s ease 0s;
 	transition-property: transform, box-shadow;
@@ -475,7 +435,7 @@ nav li:hover {
 
 .card:hover {
 	transform: scale(1.05);
-	box-shadow: var(--darkShadow) 0px 0px 50px 10px;
+	box-shadow: c.$dark-shadow 0px 0px 50px 10px;
 }
 
 .card h3 {
@@ -508,7 +468,7 @@ nav li:hover {
 
 input,
 textarea {
-	font-family: var(--bodyFont);
+	font-family: f.$body;
 	font-size: 1rem;
 	border: 1px solid white;
 	outline: none;
@@ -520,42 +480,42 @@ textarea {
 
 input:hover,
 textarea:hover {
-	border: 1px solid var(--accentColorLight);
+	border: 1px solid c.$accent-light;
 }
 
 input:focus,
 textarea:focus {
-	border: 1px solid var(--accentColorLight);
-	box-shadow: var(--accentColorTransparent) 0px 0px 10px;
+	border: 1px solid c.$accent-light;
+	box-shadow: c.$accent-light-transparent 0px 0px 10px;
 }
 
 input[type=submit] {
-	border: 1px solid var(--accentColorLight);
-	background-color: var(--accentColorLight);
+	border: 1px solid c.$accent-light;
+	background-color: c.$accent-light;
 	width: 150px;
 	transition: all 0.3s ease 0s;
 	transition-property: border, background-color;
 	font-weight: 500;
-	font-family: var(--headingFont);
+	font-family: f.$heading;
 	font-size: 1.2rem;
 	border-radius: 3px;
 }
 
 input[type=submit]:hover {
-	border: 1px solid var(--antiColorLight);
-	background-color: var(--antiColor);
+	border: 1px solid c.$anti-light;
+	background-color: c.$anti;
 	cursor: pointer;
 }
 
 input[type=submit]:focus {
-	box-shadow: var(--antiColorLight) 0px 0px 10px;
-	border: 1px solid var(--antiColor);
-	background-color: var(--antiColor);
+	box-shadow: c.$anti-light 0px 0px 10px;
+	border: 1px solid c.$anti;
+	background-color: c.$anti;
 }
 
 
 textarea[id="message"] {
-	font-family: var(--bodyFont);
+	font-family: f.$body;
 	width: 100%;
 	height: 10em;
 	vertical-align: top;
