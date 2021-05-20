@@ -41,11 +41,11 @@ function scrollRoutine() {
 // TODO need to split into two functions, one to assign the class, and the other to detect which class should be applied
 function toggleTopButtonVisibility() {
 	if (window.scrollY > window.innerHeight / 2) {
-		topButton.classList.add("show");
-		topButton.classList.remove("hide");
+		backToTopButton.classList.add("show");
+		backToTopButton.classList.remove("hide");
 	} else {
-		topButton.classList.remove("show");
-		topButton.classList.add("hide");
+		backToTopButton.classList.remove("show");
+		backToTopButton.classList.add("hide");
 	}
 }
 
@@ -68,7 +68,7 @@ function parallaxRoutine() {
 
 // Determines the appropriate background position based on the target element, rate, and the user's scroll position on the page
 function parallaxAdjust(element, rate) {
-	let givenPosition = element.getBoundingClientRect().y / rate;
+	const givenPosition = element.getBoundingClientRect().y / rate;
 	element.style.backgroundPositionY = (`${givenPosition}px`);
 }
 
@@ -82,7 +82,7 @@ function backgroundPsuedoFixed(element) {
 // ================================
 
 // Sets the button with the ID 'topButton' to a variable for use later
-let topButton = document.getElementById('topButton');
+const backToTopButton = document.getElementById('topButton');
 
 //  Makes a list of all elements that are of class 'parallax'
 //  used to perform background image adjustments to create the parallax effect
