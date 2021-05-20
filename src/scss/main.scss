@@ -101,10 +101,9 @@ p {
 a {
 	color: c.$dark;
 	transition: color 0.3s ease 0s;
-}
-
-a:hover {
-    color: c.$accent;
+	&:hover {
+		color: c.$accent;
+	}
 }
 
 /* Lists */
@@ -116,11 +115,14 @@ ul {
 
 li {
 	padding: 0.25rem 0;
+	ul {
+		margin: 0;
+	}
 }
 
-li ul {
-	margin: 0;
-}
+// li ul {
+// 	margin: 0;
+// }
 
 /*
 =======================================
@@ -132,7 +134,7 @@ body {
 	margin: 0 auto;
 	max-width: size.$eventHorizon;
 	background-color: c.$light;
-	box-shadow: var(--darkShadow) 0px 0px 25px;
+	box-shadow: c.$dark-shadow 0px 0px 25px;
 }
 
 header {
@@ -203,15 +205,21 @@ section {
 
 .whiteText {
 	color: c.$light;
+	a {
+		color: c.$light;
+	}
+	::selection {
+		color: c.$dark;
+	}
 }
 
-.whiteText a {
-	color: c.$light;
-}
+// .whiteText a {
+// 	color: c.$light;
+// }
 
-.whiteText ::selection {
-	color: c.$dark;
-}
+// .whiteText ::selection {
+// 	color: c.$dark;
+// }
 
 .sectionColor2 {
 	background-color: c.$anti-light;
@@ -219,14 +227,19 @@ section {
 
 /* Welcome Section */
 
-#welcome p {
-	font-size: 1.75rem;
-	font-style: italic;
+#welcome {
+	p {
+		font-size: 1.75rem;
+		font-style: italic;
+	}
+	h1 {
+		font-style: italic;
+	}
 }
 
-#welcome h1 {
-	font-style: italic;
-}
+// #welcome h1 {
+// 	font-style: italic;
+// }
 
 /* To animate "Scroll to continue..." */
 @keyframes phase {
@@ -252,18 +265,27 @@ section {
 .subSection {
 	display: flex;
 	justify-content: space-between;
+	p {
+		flex: 60%;
+		flex-grow: 0;		
+	}
+	img {
+		width: 300px;
+		flex: 30%;
+		flex-grow: 0;
+	}
 }
 
-.subSection p {
-	flex: 60%;
-	flex-grow: 0;
-}
+// .subSection p {
+// 	flex: 60%;
+// 	flex-grow: 0;
+// }
 
-.subSection img {
-	width: 300px;
-	flex: 30%;
-	flex-grow: 0;
-}
+// .subSection img {
+// 	width: 300px;
+// 	flex: 30%;
+// 	flex-grow: 0;
+// }
 
 
 /*
@@ -283,35 +305,63 @@ nav {
 	background-color: c.$dark;
 	font-size: 1.2em;
 	cursor: default;
+	ul {
+		margin: 0;
+		padding: 0;
+		display: flex;
+		gap: 1em;		
+	}
+	li {
+		padding: 0.5em;
+		display: inline;
+		border: 3px solid transparent;
+		border-radius: 3px;
+		color: c.$light;
+		font-family: f.$heading;
+		font-weight: 500;
+		text-transform: uppercase;
+		text-decoration: none;
+		cursor: pointer;
+		transition: all 0.3s ease 0s;
+		transition-property: border, color;
+		&:hover {
+			border-bottom: 3px solid c.$accent;
+			color: c.$accent;
+		}
+	}
+	> a {
+		color: c.$light;
+		text-decoration: none;
+	}
 }
 
-nav ul {   
-	margin: 0;
-	padding: 0;
-	display: flex;
-	gap: 1em;
-}
+// nav ul {   
+// 	margin: 0;
+// 	padding: 0;
+// 	display: flex;
+// 	gap: 1em;
+// }
 
-nav li {
-	padding: 0.5em;
-	display: inline;
-	border: 3px solid transparent;
-	border-radius: 3px;
-	color: c.$light;
-	font-family: f.$heading;
-	font-weight: 500;
-	text-transform: uppercase;
-	text-decoration: none;
-	cursor: pointer;
-	transition: all 0.3s ease 0s;
-	transition-property: border, color;
-}
+// nav li {
+// 	padding: 0.5em;
+// 	display: inline;
+// 	border: 3px solid transparent;
+// 	border-radius: 3px;
+// 	color: c.$light;
+// 	font-family: f.$heading;
+// 	font-weight: 500;
+// 	text-transform: uppercase;
+// 	text-decoration: none;
+// 	cursor: pointer;
+// 	transition: all 0.3s ease 0s;
+// 	transition-property: border, color;
+// }
 
 /* '>' causes the style to be applied to any descendant 'a' vs just the direct children */
-nav > a {
-	color: c.$light;
-	text-decoration: none;
-}
+// nav > a {
+// 	color: c.$light;
+// 	text-decoration: none;
+// }
 
 nav li:hover {
 	border-bottom: 3px solid c.$accent;
@@ -335,14 +385,20 @@ nav li:hover {
 	font-weight: 500;
 	transition: all 0.2s ease 0s;
 	transition-property: background-color, box-shadow, transform;
+	&:hover {
+		background-color: c.$anti;
+		box-shadow: c.$anti-light-transparent 0px 0px 25px;
+		cursor: pointer;
+		transform: scale(1.05);
+	}
 }
 
-.button:hover {
-	background-color: c.$anti;
-	box-shadow: c.$anti-light-transparent 0px 0px 25px;
-	cursor: pointer;
-	transform: scale(1.05);
-}
+// .button:hover {
+// 	background-color: c.$anti;
+// 	box-shadow: c.$anti-light-transparent 0px 0px 25px;
+// 	cursor: pointer;
+// 	transform: scale(1.05);
+// }
 
 /*
 =======================================
@@ -370,23 +426,36 @@ nav li:hover {
 	cursor: pointer;
 	transition: all 0.2s ease 0s;
 	transition-property: box-shadow, background-color, transform, opacity, visibility;
+	img {
+		display: block;
+		height: 75%;
+		filter: invert(1);
+	}
+	&:hover {
+		box-shadow: c.$anti-light-transparent 0px 0px 25px;
+		background-color: c.$anti;
+		transform: scale(1.1);
+		img {
+			filter: invert(0);
+		}
+	}
 }
 
-#topButton:hover {
-	box-shadow: c.$anti-light-transparent 0px 0px 25px;
-	background-color: c.$anti;
-	transform: scale(1.1);
-}
+// #topButton:hover {
+// 	box-shadow: c.$anti-light-transparent 0px 0px 25px;
+// 	background-color: c.$anti;
+// 	transform: scale(1.1);
+// }
 
-#topButton:hover img {
-	filter: invert(0);
-}
+// #topButton:hover img {
+// 	filter: invert(0);
+// }
 
-#topButton img {
-	display: block;
-	height: 75%;
-	filter: invert(1);
-}
+// #topButton img {
+// 	display: block;
+// 	height: 75%;
+// 	filter: invert(1);
+// }
 
 .hide {
 	opacity: 0;
@@ -431,16 +500,23 @@ nav li:hover {
 	cursor: default;
 	transition: all 0.15s ease 0s;
 	transition-property: transform, box-shadow;
+	&:hover {
+		transform: scale(1.05);
+		box-shadow: c.$dark-shadow 0px 0px 50px 10px;
+	}
+	h3 {
+		margin-top: 0;
+	}
 }
 
-.card:hover {
-	transform: scale(1.05);
-	box-shadow: c.$dark-shadow 0px 0px 50px 10px;
-}
+// .card:hover {
+// 	transform: scale(1.05);
+// 	box-shadow: c.$dark-shadow 0px 0px 50px 10px;
+// }
 
-.card h3 {
-	margin-top: 0;
-}
+// .card h3 {
+// 	margin-top: 0;
+// }
 
 /*
 =======================================
@@ -460,11 +536,14 @@ nav li:hover {
 	display: flex;
 	flex-direction: column;
 	width: 100%;
+	label {
+		padding: 1em;
+	}
 }
 
-.formPair label {
-	padding: 1em;
-}
+// .formPair label {
+// 	padding: 1em;
+// }
 
 input,
 textarea {
@@ -476,18 +555,25 @@ textarea {
 	padding: 1em;
 	width: 100%;
 	resize: none;
+	&:hover {
+		border: 1px solid c.$accent-light;
+	}
+	&:focus {
+		border: 1px solid c.$accent-light;
+		box-shadow: c.$accent-light-transparent 0px 0px 10px;
+	}
 }
 
-input:hover,
-textarea:hover {
-	border: 1px solid c.$accent-light;
-}
+// input:hover,
+// textarea:hover {
+// 	border: 1px solid c.$accent-light;
+// }
 
-input:focus,
-textarea:focus {
-	border: 1px solid c.$accent-light;
-	box-shadow: c.$accent-light-transparent 0px 0px 10px;
-}
+// input:focus,
+// textarea:focus {
+// 	border: 1px solid c.$accent-light;
+// 	box-shadow: c.$accent-light-transparent 0px 0px 10px;
+// }
 
 input[type=submit] {
 	border: 1px solid c.$accent-light;
@@ -499,19 +585,29 @@ input[type=submit] {
 	font-family: f.$heading;
 	font-size: 1.2rem;
 	border-radius: 3px;
+	&:hover {
+		border: 1px solid c.$anti-light;
+		background-color: c.$anti;
+		cursor: pointer;
+	}
+	&:focus {
+		box-shadow: c.$anti-light 0px 0px 10px;
+		border: 1px solid c.$anti;
+		background-color: c.$anti;
+	}
 }
 
-input[type=submit]:hover {
-	border: 1px solid c.$anti-light;
-	background-color: c.$anti;
-	cursor: pointer;
-}
+// input[type=submit]:hover {
+// 	border: 1px solid c.$anti-light;
+// 	background-color: c.$anti;
+// 	cursor: pointer;
+// }
 
-input[type=submit]:focus {
-	box-shadow: c.$anti-light 0px 0px 10px;
-	border: 1px solid c.$anti;
-	background-color: c.$anti;
-}
+// input[type=submit]:focus {
+// 	box-shadow: c.$anti-light 0px 0px 10px;
+// 	border: 1px solid c.$anti;
+// 	background-color: c.$anti;
+// }
 
 
 textarea[id="message"] {
@@ -541,37 +637,56 @@ textarea[id="message"] {
 	nav {
 		flex-direction: column-reverse;
 		gap: 1em;
+		ul {
+			flex-direction: column;
+			text-align: center;
+			width: 100%;
+		}
+		// a li {
+		// 	width: 100%;
+
+		// }
+		li:hover {
+			background-color: transparent;
+			color: c.$accent;
+		}
 	}
 
-	nav ul {
-		flex-direction: column;
-		text-align: center;
-		width: 100%;
-	}
+	// nav ul {
+	// 	flex-direction: column;
+	// 	text-align: center;
+	// 	width: 100%;
+	// }
 
-	nav a li {
-		width: 100%;
-		/* display: block; */
-	}
+	// nav a li {
+	// 	width: 100%;
+	// 	/* display: block; */
+	// }
 
-	nav li:hover {
-		background-color: transparent;
-		color: c.$accent;
-	}
+	// nav li:hover {
+	// 	background-color: transparent;
+	// 	color: c.$accent;
+	// }
 
 }
 
 @media screen and (max-width: 1000px) {
 	.subSection {
 		flex-direction: column;
+		> img {
+			flex: auto;
+			width: 300px;
+			height: 300px;
+			flex-grow: 1;
+		}
 	}
 
-	.subSection > img {
-		flex: auto;
-		width: 300px;
-		height: 300px;
-		flex-grow: 1;
-	}
+	// .subSection > img {
+	// 	flex: auto;
+	// 	width: 300px;
+	// 	height: 300px;
+	// 	flex-grow: 1;
+	// }
 }
 
 @media screen and (max-width: 1200px) {
