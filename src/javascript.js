@@ -94,6 +94,14 @@ parallaxRoutine();
 // Event Listener that triggers the scrollRoutine function every time the user scrolls
 window.addEventListener("scroll", scrollRoutine);
 
+// const ulStruct = document.createElement('p');
+// ulStruct.appendChild(document.createElement('li'));
+const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"]];
+
+for (i of navigationArray) {
+	document.getElementById("navigationTarget").innerHTML += `<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`;
+}
+
 // backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
 
 // const card3d = document.getElementById('card3d');

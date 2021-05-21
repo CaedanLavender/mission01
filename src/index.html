@@ -17,7 +17,7 @@
 				</div>
 			</div>
 			<div class="gotoButtonOuter">
-				<div class="gotoButton" onclick="scrollToSection('vscode')">
+				<div class="gotoButton" style="border-color: #5522FA;" onclick="scrollToSection('vscode')">
 					<div class="gotoLabel">VS Code</div>
 				</div>
 			</div>
@@ -36,13 +36,13 @@
 	</div>
 	<header id="top">
 		<nav>
-			<ul>
-				<a onclick="scrollToSection('working_on')"><li>Working on</li></a>
-				<a onclick="scrollToSection('vscode')"><li>VS Code</li></a>
-				<a onclick="scrollToSection('resources')"><li>Resources</li></a>
-				<a onclick="scrollToSection('future')"><li>Future</li></a>
+			<ul id="navigationTarget">
+				<!-- Navigation structure built by javascript -->
 			</ul>
 			<a onclick="scrollToSection('contact')"><div class="button">Contact</div></a>
+			<ul id="insertTarget">
+
+			</ul>
 		</nav>
 	</header>
 		
@@ -69,7 +69,7 @@
 							<li>Linking to css and other resources</li>
 						</ul>
 					</div>
-					<div class="card" id="card3d">
+					<div class="card">
 						<h3>CSS</h3>
 						<ul>
 							<li>Specificity (try say that 10 times)</li>

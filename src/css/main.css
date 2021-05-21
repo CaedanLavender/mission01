@@ -330,24 +330,27 @@ li ul {
   justify-content: center;
   align-items: center;
 }
-.rightRail .gotoContainer {
-  opacity: 0.5;
-}
-.rightRail .gotoContainer * {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-.rightRail:hover * {
+.rightRail:hover .gotoContainer {
   opacity: 1;
 }
-.rightRail .gotoContainer {
+.rightRail:hover .gotoButton {
+  background-color: transparent;
+  height: 20px;
+  width: 20px;
+  border: 3px solid #141e28;
+  border-radius: 50%;
+}
+
+.gotoContainer {
+  opacity: 0.5;
   background-color: whitesmoke;
   border: 1px solid white;
   box-shadow: rgba(20, 30, 40, 0.2) 0 0 10px;
   width: 40px;
   border-radius: 20px;
 }
-.rightRail .gotoButtonOuter {
+
+.gotoButtonOuter {
   cursor: pointer;
   width: 100%;
   height: 60px;
@@ -356,38 +359,35 @@ li ul {
   align-items: center;
   overflow: visible;
 }
-.rightRail .gotoButtonOuter:hover .gotoButton {
-  border: none;
+.gotoButtonOuter:hover .gotoButton {
+  border-color: #5522FA;
   transform: scale(1.5);
   background-color: #5522FA;
   box-shadow: #7b54fb 0 0 10px;
 }
-.rightRail .gotoButtonOuter:hover .gotoButton .gotoLabel {
+.gotoButtonOuter:hover .gotoButton .gotoLabel {
   visibility: visible;
 }
-.rightRail .gotoButton {
-  height: 20px;
-  width: 20px;
+
+.gotoButton {
+  opacity: 1;
+  height: 3px;
+  width: 3px;
   border: 3px solid #141e28;
   border-radius: 50%;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  transition: transform 0.1s ease;
+  transition: all 0.1s ease-out;
+  transition-property: transform, height, width;
 }
-.rightRail .gotoLabel {
+
+.gotoLabel {
   visibility: hidden;
   font-size: 0.6em;
+  font-weight: 500;
   position: absolute;
   width: max-content;
   right: 35px;
   color: #5522FA;
   text-transform: uppercase;
-}
-@media screen and (max-width: 700px) {
-  .rightRail {
-    visibility: hidden;
-  }
 }
 
 .buttoncontainer {
