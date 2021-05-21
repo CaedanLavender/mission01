@@ -195,8 +195,8 @@ nav li {
   transition-property: border, color;
 }
 nav li:hover {
-  border-bottom: 3px solid #fa5cd5;
-  color: #fa5cd5;
+  border-bottom: 3px solid #5522FA;
+  color: #5522FA;
 }
 nav > a {
   color: whitesmoke;
@@ -204,8 +204,8 @@ nav > a {
 }
 
 nav li:hover {
-  border-bottom: 3px solid #fa5cd5;
-  color: #fa5cd5;
+  border-bottom: 3px solid #5522FA;
+  color: #5522FA;
 }
 
 /* Headings */
@@ -221,7 +221,7 @@ nav li:hover {
 }
 
 :is(h1, h2, h3, h4, h5) a:hover {
-  color: #fa5cd5;
+  color: #5522FA;
 }
 
 h1 {
@@ -274,7 +274,7 @@ a {
   transition: color 0.3s ease 0s;
 }
 a:hover {
-  color: #fa5cd5;
+  color: #5522FA;
 }
 
 /* Lists */
@@ -299,7 +299,7 @@ li ul {
   padding: 0.75em 2em;
   border: none;
   border-radius: 3px;
-  background-color: #fca6e8;
+  background-color: #7b54fb;
   color: #141e28;
   font-family: "Signika";
   font-size: 1em;
@@ -319,6 +319,77 @@ li ul {
 	Back to top button
 =======================================
 */
+.rightRail {
+  position: fixed;
+  z-index: 80;
+  right: 1vw;
+  width: 9vw;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+.rightRail .gotoContainer {
+  opacity: 0.5;
+}
+.rightRail .gotoContainer * {
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+.rightRail:hover * {
+  opacity: 1;
+}
+.rightRail .gotoContainer {
+  background-color: whitesmoke;
+  border: 1px solid white;
+  box-shadow: rgba(20, 30, 40, 0.2) 0 0 10px;
+  width: 40px;
+  border-radius: 20px;
+}
+.rightRail .gotoButtonOuter {
+  cursor: pointer;
+  width: 100%;
+  height: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: visible;
+}
+.rightRail .gotoButtonOuter:hover .gotoButton {
+  border: none;
+  transform: scale(1.5);
+  background-color: #5522FA;
+  box-shadow: #7b54fb 0 0 10px;
+}
+.rightRail .gotoButtonOuter:hover .gotoButton .gotoLabel {
+  visibility: visible;
+}
+.rightRail .gotoButton {
+  height: 20px;
+  width: 20px;
+  border: 3px solid #141e28;
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: transform 0.1s ease;
+}
+.rightRail .gotoLabel {
+  visibility: hidden;
+  font-size: 0.6em;
+  position: absolute;
+  width: max-content;
+  right: 35px;
+  color: #5522FA;
+  text-transform: uppercase;
+}
+@media screen and (max-width: 700px) {
+  .rightRail {
+    visibility: hidden;
+  }
+}
+
 .buttoncontainer {
   z-index: 99;
   position: fixed;
@@ -327,10 +398,12 @@ li ul {
 }
 
 #topButton {
+  position: absolute;
+  bottom: 10vh;
   height: 80px;
   width: 80px;
-  background-color: #fca6e8;
-  box-shadow: rgba(20, 30, 40, 0.2) 0px 0px 25px;
+  background-color: #5522FA;
+  box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 25px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -341,7 +414,6 @@ li ul {
   transition-property: box-shadow, background-color, transform, opacity, visibility;
 }
 #topButton img {
-  display: block;
   height: 75%;
   filter: invert(1);
 }
@@ -394,17 +466,17 @@ textarea {
 }
 input:hover,
 textarea:hover {
-  border: 1px solid #fca6e8;
+  border: 1px solid #7b54fb;
 }
 input:focus,
 textarea:focus {
-  border: 1px solid #fca6e8;
-  box-shadow: rgba(252, 166, 232, 0.4) 0px 0px 10px;
+  border: 1px solid #7b54fb;
+  box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 10px;
 }
 
 input[type=submit] {
-  border: 1px solid #fca6e8;
-  background-color: #fca6e8;
+  border: 1px solid #7b54fb;
+  background-color: #7b54fb;
   width: 150px;
   transition: all 0.3s ease 0s;
   transition-property: border, background-color;
@@ -452,7 +524,7 @@ textarea[id=message] {
   }
   nav li:hover {
     background-color: transparent;
-    color: #fa5cd5;
+    color: #5522FA;
   }
 }
 @media screen and (max-width: 1000px) {

@@ -94,4 +94,34 @@ parallaxRoutine();
 // Event Listener that triggers the scrollRoutine function every time the user scrolls
 window.addEventListener("scroll", scrollRoutine);
 
-console.log("this ran");
+// backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
+
+// const card3d = document.getElementById('card3d');
+
+// function getInnerCoords(element, x, y) {
+// 	console.log(element);
+// 	console.log("x" + x + "y" + y);
+// 	console.log("offsetleft: " + element.offsetLeft);
+// 	console.log("offsettop: " + element.offsettop);
+// 	console.log("scroll: " + window.scrollY);
+// 	console.log("clientHeight: "+ element.clientHeight);
+// 	console.log("get inner is working");
+// }
+
+// card3d.addEventListener("mouseenter", (e) => {
+// 	const targetID = e.explicitOriginalTarget;
+// 	targetID.addEventListener("mousemove", (e) =>{
+// 		console.log(e);
+// 		getInnerCoords(targetID, e.clientX, e.clientY);
+// 	});
+// 	// console.log(e.explicitOriginalTarget);
+// 	// card3d.style.color = "red";
+// 	// card3d.style.transform = "scale(1.05) rotate3d(1, 1, 0, 20deg)";
+// 	// console.log(getInnerCoords(e));
+// });
+
+// card3d.addEventListener("mouseleave", (e) => {
+// 	card3d.style.transform = null;
+// 	card3d.style.color = "black";
+
+// });
