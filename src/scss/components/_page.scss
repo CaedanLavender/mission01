@@ -40,6 +40,7 @@ footer {
 section {
 	margin: 0 auto;
 	padding: 10em 2em 20em;
+	// height: 100%;
 	max-width: $size-contentLimit;
 }
 
@@ -76,6 +77,58 @@ section {
 .sectionColor2 {
 	background-color: $c-anti-light;
 }
+
+// Landing
+
+#landing {
+display: flex;
+flex-direction: column;
+justify-content: center;
+gap: 20vh;
+	height: 100vh;
+	.landingSectionHeading, .landingSectionNav{
+		width: 100%;
+		display: flex;
+		align-items: center;
+		justify-content: center;
+	}
+	h1 {
+		// display: block;
+		margin: 0;
+		font-size: 10rem;
+	}
+	.landingNav {
+		width: 100%;
+		display: flex;
+		justify-content: space-evenly;		
+		.navOuter {
+			text-decoration: none;
+			padding: 1em;
+			color: $c-dark;
+			font-family: $f-body;
+			font-weight: 700;
+			text-transform: uppercase;
+			border: 3px solid $c-dark;
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			height: 80px;
+			border-radius: 40px;
+			padding: 2em;
+			transition: transform 0.1s ease;
+			cursor: pointer;
+			&:hover {
+				transform: scale(1.2);
+				border-color: $c-accent;
+				background-color: $c-accent;
+				color: white;
+				box-shadow: $c-accent-light-transparent 0px 0px 50px;
+			}
+		}
+
+	}
+}
+
 
 
 /* Welcome Section */
