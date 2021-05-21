@@ -20,12 +20,11 @@ body {
   margin: 0 auto;
   max-width: 2000px;
   background-color: whitesmoke;
-  box-shadow: rgba(20, 30, 40, 0.2) 0px 0px 25px;
+  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 25px;
 }
 
 header {
-  background-color: #141e28;
-  box-shadow: rgba(20, 30, 40, 0.2) 0px 0px 25px;
+  background-color: whitesmoke;
 }
 
 main {
@@ -34,7 +33,7 @@ main {
 }
 
 footer {
-  background-color: #141e28;
+  background-color: #0a0a0a;
   padding: 5em 1em;
   color: whitesmoke;
   display: flex;
@@ -74,7 +73,7 @@ section {
 
 /* Section coloring */
 .sectionColor1 {
-  background-color: #141e28;
+  background-color: #0a0a0a;
 }
 
 .whiteText {
@@ -84,7 +83,7 @@ section {
   color: whitesmoke;
 }
 .whiteText ::selection {
-  color: #141e28;
+  color: #0a0a0a;
 }
 
 .sectionColor2 {
@@ -127,15 +126,15 @@ section {
   border: 2px solid white;
   border-radius: 6px;
   background-color: whitesmoke;
-  box-shadow: rgba(20, 30, 40, 0.2) 0px 0px 25px;
-  color: #141e28;
+  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 25px;
+  color: #0a0a0a;
   cursor: default;
   transition: all 0.15s ease 0s;
   transition-property: transform, box-shadow;
 }
 .card:hover {
   transform: scale(1.05);
-  box-shadow: rgba(20, 30, 40, 0.2) 0px 0px 50px 10px;
+  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 50px 10px;
 }
 .card h3 {
   margin-top: 0;
@@ -170,7 +169,7 @@ nav {
   align-items: center;
   max-width: 1200px;
   height: 100%;
-  background-color: #141e28;
+  background-color: whitesmoke;
   font-size: 1.2em;
   cursor: default;
 }
@@ -183,11 +182,10 @@ nav ul {
 nav li {
   padding: 0.5em;
   display: inline;
-  border: 3px solid transparent;
   border-radius: 3px;
-  color: whitesmoke;
-  font-family: "Signika";
-  font-weight: 500;
+  color: #0a0a0a;
+  font-family: "Roboto";
+  font-weight: 700;
   text-transform: uppercase;
   text-decoration: none;
   cursor: pointer;
@@ -195,17 +193,11 @@ nav li {
   transition-property: border, color;
 }
 nav li:hover {
-  border-bottom: 3px solid #5522FA;
   color: #5522FA;
 }
 nav > a {
   color: whitesmoke;
   text-decoration: none;
-}
-
-nav li:hover {
-  border-bottom: 3px solid #5522FA;
-  color: #5522FA;
 }
 
 /* Headings */
@@ -216,7 +208,7 @@ nav li:hover {
 }
 
 :is(h1, h2, h3, h4, h5) a {
-  color: #141e28;
+  color: #0a0a0a;
   transition: color 0.3s ease 0s;
 }
 
@@ -270,7 +262,7 @@ p {
 
 /* Links */
 a {
-  color: #141e28;
+  color: #0a0a0a;
   transition: color 0.3s ease 0s;
 }
 a:hover {
@@ -300,8 +292,8 @@ li ul {
   border: none;
   border-radius: 3px;
   background-color: #7b54fb;
-  color: #141e28;
-  font-family: "Signika";
+  color: #0a0a0a;
+  font-family: "Roboto";
   font-size: 1em;
   font-weight: 500;
   transition: all 0.2s ease 0s;
@@ -311,7 +303,6 @@ li ul {
   background-color: #ffde49;
   box-shadow: rgba(255, 236, 150, 0.4) 0px 0px 25px;
   cursor: pointer;
-  transform: scale(1.05);
 }
 
 /*
@@ -337,7 +328,7 @@ li ul {
   background-color: transparent;
   height: 20px;
   width: 20px;
-  border: 3px solid #141e28;
+  border: 3px solid #0a0a0a;
   border-radius: 50%;
 }
 
@@ -345,7 +336,7 @@ li ul {
   opacity: 0.5;
   background-color: whitesmoke;
   border: 1px solid white;
-  box-shadow: rgba(20, 30, 40, 0.2) 0 0 10px;
+  box-shadow: rgba(10, 10, 10, 0.2) 0 0 10px;
   width: 40px;
   border-radius: 20px;
 }
@@ -373,7 +364,7 @@ li ul {
   opacity: 1;
   height: 3px;
   width: 3px;
-  border: 3px solid #141e28;
+  border: 3px solid #0a0a0a;
   border-radius: 50%;
   transition: all 0.1s ease-out;
   transition-property: transform, height, width;

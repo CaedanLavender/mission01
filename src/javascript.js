@@ -98,10 +98,21 @@ window.addEventListener("scroll", scrollRoutine);
 // ulStruct.appendChild(document.createElement('li'));
 const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"]];
 
+//Top Navigation constructor
 for (i of navigationArray) {
 	document.getElementById("navigationTarget").innerHTML += `<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`;
 }
 
+//Right Rail Navigation constructor
+for (i of navigationArray) {
+	document.getElementById("rightRailTarget").innerHTML += (
+		`<div class="gotoButtonOuter" onclick="scrollToSection('${i[0]}')">
+			<div class="gotoButton">
+				<div class="gotoLabel">${i[1]}</div>
+			</div>
+		</div>`
+	);
+	}
 // backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
 
 // const card3d = document.getElementById('card3d');

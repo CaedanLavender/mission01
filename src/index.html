@@ -10,39 +10,20 @@
 
 <body>
 	<div class="rightRail">
-		<div class="gotoContainer">
-			<div class="gotoButtonOuter">
-				<div class="gotoButton" onclick="scrollToSection('working_on')">
-					<div class="gotoLabel">Working on</div>
-				</div>
-			</div>
-			<div class="gotoButtonOuter">
-				<div class="gotoButton" style="border-color: #5522FA;" onclick="scrollToSection('vscode')">
-					<div class="gotoLabel">VS Code</div>
-				</div>
-			</div>
-			<div class="gotoButtonOuter">
-				<div class="gotoButton" onclick="scrollToSection('resources')">
-					<div class="gotoLabel">Resources</div>
-				</div>
-			</div>
-			<div class="gotoButtonOuter">
-				<div class="gotoButton" onclick="scrollToSection('future')">
-					<div class="gotoLabel">Contact</div>
-				</div>
-			</div>
+		<div class="gotoContainer" id="rightRailTarget">
+			<!-- Navigation structure built by javascript -->
 		</div>
 		<div id="topButton" onclick="scrollToTop()" class="hide"><img src="icons/arrow-up.svg"></div>
 	</div>
 	<header id="top">
 		<nav>
 			<ul id="navigationTarget">
+				<a >
+					<li>test</li>
+				</a>
 				<!-- Navigation structure built by javascript -->
 			</ul>
 			<a onclick="scrollToSection('contact')"><div class="button">Contact</div></a>
-			<ul id="insertTarget">
-
-			</ul>
 		</nav>
 	</header>
 		
@@ -87,6 +68,7 @@
 							<li>Event listeners</li>
 							<li>Querying the page for elements, classes, and IDs</li>
 							<li>Adding, removing styles</li>
+							<li>Constructing repeating sections of the page</li>
 						</ul>
 					</div>
 				</div>
