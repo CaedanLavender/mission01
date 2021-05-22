@@ -88,6 +88,18 @@ const backToTopButton = document.getElementById('topButton');
 //  used to perform background image adjustments to create the parallax effect
 const ParallaxList = getClassList('parallax');
 
+const HideAfterLandingList = getClassList('hideAfterLanding');
+console.log(HideAfterLandingList);
+
+function leaveLanding() {
+	document.getElementById("landing").classList.add('landingReadyToHide');
+	for (i of HideAfterLandingList) {
+		i.classList.add("hiddenFromLanding");
+		document.getElementById("landing").style.height = "100px";
+	}
+	// document.getElementById("landing").classList.remove('landingReadyToHide');
+}
+
 // runs the parallax routine initially because the initial background image position is 'no offset', failure to run this function at least once on page load means that the images will appear to 'jump' to their 'parallax' positions the moment the user scrolls
 parallaxRoutine();
 

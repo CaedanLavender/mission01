@@ -94,20 +94,34 @@ section {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20vh;
   height: 100vh;
 }
-#landing h1 {
+
+.landingReadyToHide {
+  transition: height 1.5s cubic-bezier(0.48, 0.4, 0.3, 1);
+}
+
+.landingHeading {
+  display: flex;
+  justify-content: end;
+  align-items: center;
+  flex: 40%;
+}
+.landingHeading h1 {
   margin: 0;
   font-size: 10rem;
 }
-#landing .landingNav {
+
+.landingNav {
+  flex: 30%;
   width: 100%;
   display: flex;
   justify-content: center;
+  align-items: center;
   gap: 6em;
 }
-#landing .navOuter {
+
+.navOuter {
   text-decoration: none;
   padding: 1em;
   color: #0a0a0a;
@@ -124,7 +138,7 @@ section {
   transition: transform 0.1s ease;
   cursor: pointer;
 }
-#landing .navOuter:hover {
+.navOuter:hover {
   transform: scale(1.2);
   border-color: #5522FA;
   background-color: #5522FA;
@@ -132,12 +146,28 @@ section {
   box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 50px;
 }
 
+.landingBelow {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex: 30%;
+}
+
+.hideAfterLanding {
+  transition: opacity 0.2s ease;
+  transition: transform 0.2s ease;
+}
+
+.hiddenFromLanding {
+  height: 0;
+  width: 0;
+  transform: scale(0);
+  opacity: 0;
+  overflow: hidden;
+}
+
 #limbo {
   height: 200vh;
-  background-attachment: url("https://images.unsplash.com/photo-1464809142576-df63ca4ed7f0");
-  background-position: center;
-  background-repeat: no-repeat;
-  background-size: cover;
 }
 
 /* Welcome Section */
@@ -201,6 +231,10 @@ section {
   background-size: auto 150vh;
   background-attachment: fixed;
   background-repeat: no-repeat;
+}
+
+.para0 {
+  background-image: url("../images/cave.jpg");
 }
 
 .para1 {
@@ -389,6 +423,7 @@ li ul {
   box-shadow: rgba(10, 10, 10, 0.2) 0 0 10px;
   width: 40px;
   border-radius: 20px;
+  transition: opacity 0.1s ease;
 }
 
 .gotoButtonOuter {

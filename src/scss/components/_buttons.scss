@@ -64,6 +64,7 @@
 	box-shadow: $c-dark-shadow 0 0 10px;
 	width: 40px;
 	border-radius: 20px;
+	transition: opacity 0.1s ease;
 }
 
 .gotoButtonOuter {
