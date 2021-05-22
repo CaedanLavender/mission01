@@ -96,14 +96,14 @@ window.addEventListener("scroll", scrollRoutine);
 
 // const ulStruct = document.createElement('p');
 // ulStruct.appendChild(document.createElement('li'));
-const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"]];
+const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"],["contact","Contact"]];
 
 //Top Navigation constructor
 for (i of navigationArray) {
 	document.getElementById("navigationTarget").innerHTML += `<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`;
 }
 
-//Right Rail Navigation constructor
+// Right Rail Navigation constructor
 for (i of navigationArray) {
 	document.getElementById("rightRailTarget").innerHTML += (
 		`<div class="gotoButtonOuter" onclick="scrollToSection('${i[0]}')">
@@ -112,7 +112,12 @@ for (i of navigationArray) {
 			</div>
 		</div>`
 	);
-	}
+}
+
+for (i of navigationArray) {
+	console.log('it ran');
+	document.getElementById("landingTarget").innerHTML += (`<div class="navOuter" onclick="scrollToSection('${i[0]}')"><div>${i[1]}</div></div>`);
+}
 // backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
 
 // const card3d = document.getElementById('card3d');
