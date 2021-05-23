@@ -89,16 +89,26 @@ const backToTopButton = document.getElementById('topButton');
 const ParallaxList = getClassList('parallax');
 
 const HideAfterLandingList = getClassList('hideAfterLanding');
-console.log(HideAfterLandingList);
 
 function leaveLanding() {
-	document.getElementById("landing").classList.add('landingReadyToHide');
+	document.getElementById("landing").classList.add('headerTransition');
+	document.getElementById("landingTarget").classList.add('navTransition');
+	document.getElementById("landingTarget").classList.add('mainNav');
+	document.getElementById("landingTarget").classList.remove('navInitial');
 	for (i of HideAfterLandingList) {
 		i.classList.add("hiddenFromLanding");
-		document.getElementById("landing").style.height = "100px";
+		// document.getElementById("landing").style.top = "0";
+		document.getElementById("landing").classList.add('mainHeader');
+	}
+		setTimeout(function () {
+			for (i of HideAfterLandingList) {
+				i.style.display = "none";
+			}
+			document.getElementById("landingTarget").classList.remove('navTransition');
+		}, 500);
 	}
 	// document.getElementById("landing").classList.remove('landingReadyToHide');
-}
+
 
 // runs the parallax routine initially because the initial background image position is 'no offset', failure to run this function at least once on page load means that the images will appear to 'jump' to their 'parallax' positions the moment the user scrolls
 parallaxRoutine();
@@ -111,9 +121,9 @@ window.addEventListener("scroll", scrollRoutine);
 const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"],["contact","Contact"]];
 
 //Top Navigation constructor
-for (i of navigationArray) {
-	document.getElementById("navigationTarget").innerHTML += `<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`;
-}
+// for (i of navigationArray) {
+// 	document.getElementById("navigationTarget").innerHTML += `<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`;
+// }
 
 // Right Rail Navigation constructor
 for (i of navigationArray) {
@@ -128,7 +138,7 @@ for (i of navigationArray) {
 
 for (i of navigationArray) {
 	console.log('it ran');
-	document.getElementById("landingTarget").innerHTML += (`<div class="navOuter" onclick="scrollToSection('${i[0]}')"><div>${i[1]}</div></div>`);
+	document.getElementById("navTarget").innerHTML += (`<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`);
 }
 // backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
 

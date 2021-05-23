@@ -1,42 +1,42 @@
 @use "../abstracts" as *;
 
-nav {
-	margin: 0 auto;
-	padding: 1.5em;
-	display: flex;
-	justify-content: space-between;
-	align-items: center;
-	max-width: $size-contentLimit;
-	height: 100%;
-	background-color: $c-light;
-	font-size: 1.2em;
-	cursor: default;
-	ul {
-		margin: 0;
-		padding: 0;
-		display: flex;
-		gap: 1em;		
-	}
-	li {
-		padding: 0.5em;
-		display: inline;
-		// border: 3px solid transparent;
-		border-radius: 3px;
-		color: $c-dark;
-		font-family: $f-body;
-		font-weight: 700;
-		text-transform: uppercase;
-		text-decoration: none;
-		cursor: pointer;
-		transition: all 0.3s ease 0s;
-		transition-property: border, color;
-		&:hover {
-			// border-bottom: 3px solid $c-accent;
-			color: $c-accent;
-		}
-	}
-	> a {
-		color: $c-light;
-		text-decoration: none;
-	}
-}
+// nav {
+// 	margin: 0 auto;
+// 	padding: 1.5em;
+// 	display: flex;
+// 	justify-content: space-between;
+// 	align-items: center;
+// 	max-width: $size-contentLimit;
+// 	height: 100%;
+// 	background-color: $c-light;
+// 	font-size: 1.2em;
+// 	cursor: default;
+// 	ul {
+// 		margin: 0;
+// 		padding: 0;
+// 		display: flex;
+// 		gap: 1em;		
+// 	}
+// 	li {
+// 		padding: 0.5em;
+// 		display: inline;
+// 		// border: 3px solid transparent;
+// 		border-radius: 3px;
+// 		color: $c-dark;
+// 		font-family: $f-body;
+// 		font-weight: 700;
+// 		text-transform: uppercase;
+// 		text-decoration: none;
+// 		cursor: pointer;
+// 		transition: all 0.3s ease 0s;
+// 		transition-property: border, color;
+// 		&:hover {
+// 			// border-bottom: 3px solid $c-accent;
+// 			color: $c-accent;
+// 		}
+// 	}
+// 	> a {
+// 		color: $c-light;
+// 		text-decoration: none;
+// 	}
+// }

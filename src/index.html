@@ -13,31 +13,33 @@
 		<div class="gotoContainer" id="rightRailTarget">
 			<!-- Navigation structure built by javascript -->
 		</div>
-		<div id="topButton" onclick="scrollToSection('top')" class="hide"><img src="icons/arrow-up.svg"></div>
+		<div id="topButton" onclick="scrollToSection('landing')" class="hide"><img src="icons/arrow-up.svg"></div>
 	</div>
 	<header id="landing">
 
-			<div class="landingHeading">
-					<h1 class="hideAfterLanding">Caedan</h1>
+			<div class="landingHeading hideAfterLanding">
+					<h1>Caedan</h1>
 			</div>
 
-			<div class="landingNav" id="landingTarget">
+			<nav class="navInitial" id="landingTarget">
+				<ul id="navTarget">
 
-			</div>
+				</ul>
+			</nav>
 
-			<div class="landingBelow">
-				<div class="navOuter hideAfterLanding" onclick="leaveLanding()"><div>Let's go!</div></div>
+			<div class="landingBelow hideAfterLanding">
+				<div class="navInitial__Outer" onclick="leaveLanding()"><div>Let's go!</div></div>
 			</div>
 
 	</header>
 		
-	<main id="top">
-		<nav>
+	<main>
+		<!-- <nav>
 			<ul id="navigationTarget">
-				<!-- Navigation structure built by javascript -->
+				Navigation structure built by javascript
 			</ul>
 			<a onclick="scrollToSection('contact')"><div class="button">Contact</div></a>
-		</nav>
+		</nav> -->
 		
 		<div class="superSection">
 			<section id="welcome">

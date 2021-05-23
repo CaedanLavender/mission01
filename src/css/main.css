@@ -23,7 +23,14 @@ body {
 }
 
 header {
+  max-width: 2000px;
+  margin: 0 auto;
   background-color: whitesmoke;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
 }
 
 main {
@@ -89,22 +96,22 @@ section {
   background-color: #ffec96;
 }
 
-#landing {
-  display: flex;
-  flex-direction: column;
-  justify-content: center;
-  align-items: center;
-  height: 100vh;
+.headerTransition {
+  transition: all 1s cubic-bezier(0.48, 0.4, 0.3, 1);
+  transition-property: height, background-color;
 }
 
-.landingReadyToHide {
-  transition: height 1.5s cubic-bezier(0.48, 0.4, 0.3, 1);
+.navTransition * {
+  transition: all 0.5s ease;
 }
 
 .landingHeading {
+  position: absolute;
   display: flex;
-  justify-content: end;
+  justify-content: center;
   align-items: center;
+  height: 40vh;
+  top: 0;
   flex: 40%;
 }
 .landingHeading h1 {
@@ -112,41 +119,85 @@ section {
   font-size: 10rem;
 }
 
-.landingNav {
-  flex: 30%;
+nav {
+  max-width: 2000px;
+  display: flex;
+  justify-content: center;
+}
+nav:hover li {
+  border: 2px solid transparent;
+  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 7px;
+}
+nav ul {
   width: 100%;
+  margin: 0;
+  padding: 0;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 6em;
 }
-
-.navOuter {
+nav ul li {
+  border: 2px solid transparent;
+  transition: all 0.2s ease;
+  transition-property: transform, box-shadow;
   text-decoration: none;
-  padding: 1em;
   color: #0a0a0a;
   font-family: "Roboto";
   font-weight: 700;
   text-transform: uppercase;
-  border: 3px solid #0a0a0a;
   display: flex;
   justify-content: center;
   align-items: center;
-  height: 80px;
-  border-radius: 40px;
-  padding: 2em;
-  transition: transform 0.1s ease;
   cursor: pointer;
+  border-radius: 100px;
 }
-.navOuter:hover {
-  transform: scale(1.2);
+.navInitial {
+  width: 100%;
+  padding: 75px;
+}
+.navInitial:hover li {
+  border: 2px solid transparent;
+  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 25px;
+}
+.navInitial ul {
+  gap: 5vw;
+}
+.navInitial ul li {
+  padding: 2em;
+}
+.navInitial ul li:hover {
+  transform: scale(1.15);
   border-color: #5522FA;
   background-color: #5522FA;
   color: white;
   box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 50px;
 }
 
+.mainNav {
+  align-items: center;
+}
+.mainNav ul {
+  gap: 6em;
+}
+.mainNav ul li {
+  padding: 1em 2em;
+  transition: all 0.2s ease;
+  transition-property: color, box-shadow, border;
+}
+.mainNav ul li:hover {
+  color: #5522FA;
+  box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 25px;
+  border-color: #5522FA;
+}
+
+.mainHeader {
+  height: 100px;
+}
+
 .landingBelow {
+  position: absolute;
+  bottom: 0;
+  height: 20vh;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -154,16 +205,18 @@ section {
 }
 
 .hideAfterLanding {
-  transition: opacity 0.2s ease;
-  transition: transform 0.2s ease;
+  transition: opacity 0.1s ease;
 }
 
 .hiddenFromLanding {
-  height: 0;
-  width: 0;
-  transform: scale(0);
   opacity: 0;
-  overflow: hidden;
+}
+
+.mainNav {
+  color: red;
+}
+.mainNav__Outer {
+  color: red;
 }
 
 #limbo {
@@ -243,45 +296,6 @@ section {
 
 .para2 {
   background-image: url("../images/telescope.jpg");
-}
-
-nav {
-  margin: 0 auto;
-  padding: 1.5em;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  max-width: 1200px;
-  height: 100%;
-  background-color: whitesmoke;
-  font-size: 1.2em;
-  cursor: default;
-}
-nav ul {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  gap: 1em;
-}
-nav li {
-  padding: 0.5em;
-  display: inline;
-  border-radius: 3px;
-  color: #0a0a0a;
-  font-family: "Roboto";
-  font-weight: 700;
-  text-transform: uppercase;
-  text-decoration: none;
-  cursor: pointer;
-  transition: all 0.3s ease 0s;
-  transition-property: border, color;
-}
-nav li:hover {
-  color: #5522FA;
-}
-nav > a {
-  color: whitesmoke;
-  text-decoration: none;
 }
 
 /* Headings */
