@@ -2,7 +2,7 @@
 
 body {
 	margin: 0 auto;
-	// max-width: $size-eventHorizon;
+	max-width: $size-eventHorizon;
 	background-color: $c-light;
 	box-shadow: $c-dark-shadow 0px 0px 25px;
 }
@@ -15,7 +15,7 @@ header {
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
-	height: 100vh;
+	// height: 100px;
 	// box-shadow: $c-dark-shadow 0px 0px 25px;
 }
 
@@ -89,14 +89,14 @@ section {
 
 .headerTransition {
 	transition: all 1s cubic-bezier(.48,.4,.3,1);
-	transition-property: height, background-color;
+	// transition-property: height, background-color, opacity;
 }
 
 .navTransition * {
 	transition: all 0.5s ease;
 }
 
-.landingHeading {
+#landingHeading {
 	position: absolute;
 	display: flex;
 	justify-content:center;
@@ -111,23 +111,28 @@ section {
 }
 
 nav {
-	max-width: $size-eventHorizon;
+	width: 100%;
+	max-width: $size-contentLimit;
 	// border: 1px solid red;
 	display: flex;
 	justify-content: center;
+	align-items: center;
 	&:hover li {
 		border: 2px solid transparent;
 		box-shadow: $c-dark-shadow 0px 0px 7px;
 	}
 	ul {
 		// height: 100vh;
+		// max-width: $size-contentLimit;
 		width: 100%;
 		margin: 0;
-		padding: 0;
+		padding: 0 2em;
 		display: flex;
-		justify-content: center;
+		justify-content: space-between;
 		align-items: center;
+		// gap: 3em;
 		li {
+			margin: 1em;
 			border: 2px solid transparent;
 			transition: all 0.2s ease;
 			transition-property: transform, box-shadow;
@@ -142,9 +147,9 @@ nav {
 			// transition: transform 0.1s ease;
 			cursor: pointer;
 			border-radius: 100px;
-			&:hover {
+			// &:hover {
 
-			}
+			// }
 		}
 	}
 }
@@ -157,8 +162,6 @@ nav {
 		box-shadow: $c-dark-shadow 0px 0px 25px;
 	}
 	ul{
-		
-		gap: 5vw;
 		li{
 			// border: 2px solid $c-dark;
 			// height: 80px;
@@ -178,10 +181,8 @@ nav {
 .mainNav {
 	// max-width: $size-contentLimit;
 	// justify-content: left;
-	align-items: center;
 
 	ul {
-		gap: 6em;
 		li {
 			// border-radius: 0;
 			// height: 80px;
@@ -214,11 +215,20 @@ nav {
 }
 
 .hideAfterLanding {
-	transition: opacity 0.1s ease;
+	opacity: 1;
+	transition: all 0.3s ease;
+}
+
+.visibleInLanding {
+	opacity: 1;
+	visibility:visible;
+	transition: opacity 0.3s ease;
 }
 
 .hiddenFromLanding {
 	opacity: 0;
+	transition: opacity 0.3s ease;
+	// visibility:hidden;
 }
 
 .mainNav {
@@ -240,6 +250,7 @@ nav {
 	p {
 		font-size: 1.75rem;
 		font-style: italic;
+		font-weight: 300;
 	}
 	h1 {
 		font-style: italic;
@@ -289,6 +300,30 @@ nav {
 	}
 }
 
+.sectionTextBackground {
+	position: absolute;
+	// background-color: red;
+	width: 100%;
+	height: 100%;
+	display: flex;
+	z-index: -1;
+	font-size: 900px;
+	text-transform: uppercase;
+	overflow: hidden;
+	color: lighten($c-accent, 40%);
+	justify-content: center;
+	align-items: center;
+	text-align: center;
+	line-height: 0.75;
+}
+
+.gridContainer {
+	display: grid;
+}
+
+.gridCard {
+
+}
 
 /*
 =======================================
@@ -299,19 +334,15 @@ nav {
 .parallax {
 	background-position: top;
 	background-position-y: 0px;
-	background-size: auto 150vh;
+	background-size: cover;
 	background-attachment: fixed;
 	background-repeat: no-repeat;
 }
 
-.para0 {
-	background-image: url('../images/cave.jpg');
-}
-
 .para1 {
-	background-image: url('../images/mountains.jpg');
+	background-image: url('../images/snow.jpg');
 }
 
 .para2 {
-	background-image: url('../images/telescope.jpg');
+	background-image: url('../images/red.jpg');
 }

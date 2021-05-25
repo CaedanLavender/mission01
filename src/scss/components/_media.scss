@@ -1,17 +1,74 @@
 @use "../abstracts/" as *;
 
-@media screen and (max-width: 500px) {
-	.buttoncontainer {
-		bottom: 6vh;
+@media screen and (min-width: 1800px) {
+	#welcome {
+		h1 {
+			font-size: 4.5rem;
+		}
+		p {
+			font-size: 2.25rem;
+		}
 	}
+}
 
-    footer {
+@media screen and (max-width: 1200px) {
+	#welcome {
+		p {
+			font-size: 1.5rem;
+			
+		}
+	}
+	nav {
+		ul {
+			gap: 1em;
+		}
+	}
+	.cardContainer {
 		flex-direction: column;
+	}
+	
+	.card {
+		max-width: 350px;
+	}
+	
+	.formSection {
+		flex-direction: column;
+		align-items: start;
+	}
+	
+	input:not(input[type=submit]) {
+		width: 60%;
+		min-width: 350px;
+	}
+	
+	textarea[id="message"] {
+		width: 100%;
+		height: 10em;
+		vertical-align: top;
+	}
+}
+
+
+@media screen and (max-width: 1000px) {
+	#welcome {
+		p {
+			font-size: 1.25rem;
+		}
+	}
+	.subSection {
+		flex-direction: column;
+		> img {
+			flex: auto;
+			width: 300px;
+			height: 300px;
+			flex-grow: 1;
+		}
 	}
 }
 
 @media screen and (max-width: 800px) {
 	nav {
+		display: none;
 		flex-direction: column-reverse;
 		gap: 1em;
 		ul {
@@ -24,43 +81,18 @@
 			color: $c-accent;
 		}
 	}
-
+	.parallax {
+		background-image: none;
+	}
+	
 }
 
-@media screen and (max-width: 1000px) {
-	.subSection {
+@media screen and (max-width: 500px) {
+	.buttoncontainer {
+		bottom: 6vh;
+	}
+
+	footer {
 		flex-direction: column;
-		> img {
-			flex: auto;
-			width: 300px;
-			height: 300px;
-			flex-grow: 1;
-		}
-	}
-}
-
-@media screen and (max-width: 1200px) {
-	.cardContainer {
-		flex-direction: column;
-	}
-
-	.card {
-		max-width: 350px;
-	}
-
-	.formSection {
-		flex-direction: column;
-		align-items: start;
-	}
-
-	input:not(input[type=submit]) {
-		width: 60%;
-		min-width: 350px;
-	}
-
-	textarea[id="message"] {
-		width: 100%;
-		height: 10em;
-		vertical-align: top;
 	}
 }

@@ -64,7 +64,7 @@
 	box-shadow: $c-dark-shadow 0 0 10px;
 	width: 40px;
 	border-radius: 20px;
-	transition: opacity 0.1s ease;
+	transition: opacity 0.3s ease;
 }
 
 .gotoButtonOuter {
@@ -110,14 +110,22 @@
 	text-transform: uppercase;
 }
 
-.buttoncontainer {
-	z-index: 99;
-	position: fixed;
-	bottom: 10vh;
-	right: 3vw;
+// .buttoncontainer {
+// 	z-index: 99;
+// 	position: fixed;
+// 	bottom: 10vh;
+// 	right: 3vw;
+// }
+
+#returnToLandingButton {
+	top: 5vh;
 }
 
-#topButton {
+#backToTopButton {
+	bottom: 5vh;
+}
+
+.circleButton {
 	position: absolute;
 	bottom: 10vh;
 	height: 80px;
@@ -137,6 +145,7 @@
 		height: 75%;
 		filter: invert(1);
 	}
+	
 	&:hover {
 		box-shadow: $c-anti-light-transparent 0px 0px 25px;
 		background-color: $c-anti;
@@ -156,4 +165,8 @@
 .show {
 	opacity: 1;
 	visibility: visible;
+}
+
+.show.gotoContainer {
+	opacity: 0.5;
 }

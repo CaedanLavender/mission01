@@ -41,13 +41,28 @@ function scrollRoutine() {
 // TODO need to split into two functions, one to assign the class, and the other to detect which class should be applied
 function toggleTopButtonVisibility() {
 	if (window.scrollY > window.innerHeight / 2) {
-		backToTopButton.classList.add("show");
-		backToTopButton.classList.remove("hide");
+		toggleVisibility(backToTopButton, "show");
+		toggleVisibility(rightRailCluster, "show");
 	} else {
-		backToTopButton.classList.remove("show");
-		backToTopButton.classList.add("hide");
+		toggleVisibility(backToTopButton, "hide");
+		toggleVisibility(rightRailCluster, "hide");
 	}
 }
+
+// Requires DOM object and "show" | "hide" as string
+function toggleVisibility(targetID, state) {
+	if (state === "show") {
+		targetID.classList.add("show");
+		targetID.classList.remove("hide");
+	} else if (state === "hide") {
+		targetID.classList.add("hide");
+		targetID.classList.remove("show");
+	} else {
+		console.log("Invalid state, must be a string, either 'show' or 'hide");
+	}
+}
+
+
 
 // ================================
 // Parallax functions
@@ -55,7 +70,6 @@ function toggleTopButtonVisibility() {
 
 //  A routine that runs to update all elements of class 'parallax' with their new background image positions based on how far down the page the user has scrolled
 function parallaxRoutine() {
-	// console.log(ParallaxList);
 	// only runs at certain width — primarily because my parallax function in it's current iteration doesn't look great on tall skinny display sizes :p
 	for (element of ParallaxList) {
 		if (window.innerWidth > 1200) {
@@ -72,17 +86,63 @@ function parallaxAdjust(element, rate) {
 	element.style.backgroundPositionY = (`${givenPosition}px`);
 }
 
-// Fakes a 'fixed' background to overcome iOS not doing background-attachment: fixed correctly
-function backgroundPsuedoFixed(element) {
-	element.style.backgroundPositionY = window.scrollY;
+// ================================
+// Landing functions
+// ================================
+
+function returnToLanding() {
+	outerNavTarget.classList.add('navInitial');
+	outerNavTarget.classList.remove('mainNav');
+
+	landing.classList.remove('mainHeader');
+	for (i of HideAfterLandingList) {
+		i.style.visibility = "visible";
+	}
+	setTimeout(function () {
+		for (i of HideAfterLandingList) {
+			i.classList.add('visibleInLanding');
+			i.classList.remove('hiddenFromLanding');
+		}
+	}, 500);
 }
+
+function leaveLanding() {
+	// landing.classList.add('headerTransition');
+	outerNavTarget.classList.add('mainNav');
+	outerNavTarget.classList.remove('navInitial');
+	// outerNavTarget.classList.add('mainNav');
+
+	for (i of HideAfterLandingList) {
+		i.classList.add("hiddenFromLanding");
+		
+	}
+	landing.classList.add('mainHeader');
+		setTimeout(function () {
+			for (i of HideAfterLandingList) {
+				i.classList.remove('visibleInLanding');
+				i.style.visibility = "hidden";
+			}
+		}, 500);
+		setTimeout(function () {
+			toggleVisibility(rightRailParent, "show");
+		}, 1000)
+		
+	}
+
 
 // ================================
 // ON PAGE LOAD BELOW
 // ================================
 
-// Sets the button with the ID 'topButton' to a variable for use later
-const backToTopButton = document.getElementById('topButton');
+// Sets the button with the ID 'backToTopButton' to a variable for use later
+const backToTopButton = document.getElementById('backToTopButton');
+const rightRailCluster = document.getElementById('rightRailTarget');
+
+const landing = document.getElementById("landing");
+const outerNavTarget = document.getElementById("outerNavTarget");
+const navTarget = document.getElementById("navTarget");
+
+const rightRailParent = document.getElementById('rightRailParent');
 
 //  Makes a list of all elements that are of class 'parallax'
 //  used to perform background image adjustments to create the parallax effect
@@ -90,35 +150,18 @@ const ParallaxList = getClassList('parallax');
 
 const HideAfterLandingList = getClassList('hideAfterLanding');
 
-function leaveLanding() {
-	document.getElementById("landing").classList.add('headerTransition');
-	document.getElementById("landingTarget").classList.add('navTransition');
-	document.getElementById("landingTarget").classList.add('mainNav');
-	document.getElementById("landingTarget").classList.remove('navInitial');
-	for (i of HideAfterLandingList) {
-		i.classList.add("hiddenFromLanding");
-		// document.getElementById("landing").style.top = "0";
-		document.getElementById("landing").classList.add('mainHeader');
-	}
-		setTimeout(function () {
-			for (i of HideAfterLandingList) {
-				i.style.display = "none";
-			}
-			document.getElementById("landingTarget").classList.remove('navTransition');
-		}, 500);
-	}
-	// document.getElementById("landing").classList.remove('landingReadyToHide');
+
 
 
 // runs the parallax routine initially because the initial background image position is 'no offset', failure to run this function at least once on page load means that the images will appear to 'jump' to their 'parallax' positions the moment the user scrolls
-parallaxRoutine();
+
 
 // Event Listener that triggers the scrollRoutine function every time the user scrolls
 window.addEventListener("scroll", scrollRoutine);
 
 // const ulStruct = document.createElement('p');
 // ulStruct.appendChild(document.createElement('li'));
-const navigationArray = [["working_on","Working On"],["vscode", "VS Code"],["resources", "Resources"],["future","Future"],["contact","Contact"]];
+const navigationArray = [["skills","Skills"],["projects", "Projects"],["future","Goals"],["contact","Contact"]];
 
 //Top Navigation constructor
 // for (i of navigationArray) {
@@ -136,38 +179,9 @@ for (i of navigationArray) {
 	);
 }
 
+// Main navigation constructor
 for (i of navigationArray) {
-	console.log('it ran');
 	document.getElementById("navTarget").innerHTML += (`<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`);
 }
-// backToTopButton.addEventListener("mouseenter", (e) => console.log("enter" + e.clientX));
 
-// const card3d = document.getElementById('card3d');
-
-// function getInnerCoords(element, x, y) {
-// 	console.log(element);
-// 	console.log("x" + x + "y" + y);
-// 	console.log("offsetleft: " + element.offsetLeft);
-// 	console.log("offsettop: " + element.offsettop);
-// 	console.log("scroll: " + window.scrollY);
-// 	console.log("clientHeight: "+ element.clientHeight);
-// 	console.log("get inner is working");
-// }
-
-// card3d.addEventListener("mouseenter", (e) => {
-// 	const targetID = e.explicitOriginalTarget;
-// 	targetID.addEventListener("mousemove", (e) =>{
-// 		console.log(e);
-// 		getInnerCoords(targetID, e.clientX, e.clientY);
-// 	});
-// 	// console.log(e.explicitOriginalTarget);
-// 	// card3d.style.color = "red";
-// 	// card3d.style.transform = "scale(1.05) rotate3d(1, 1, 0, 20deg)";
-// 	// console.log(getInnerCoords(e));
-// });
-
-// card3d.addEventListener("mouseleave", (e) => {
-// 	card3d.style.transform = null;
-// 	card3d.style.color = "black";
-
-// });
+parallaxRoutine();
