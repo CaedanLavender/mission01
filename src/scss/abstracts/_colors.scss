@@ -13,3 +13,10 @@ $dark-shadow: rgba($dark, 0.2);
 
 $light: #fafafa;
 $offLight: #dadada;
+
+$html: #e34c26;
+$html-light: lighten($html, 15%);
+$css: #264de4;
+$css-light: lighten($css, 15%);
+$javascript: #fcdc00;
+$javascript-light: lighten($javascript, 15%);

@@ -46,6 +46,10 @@
 		height: 10em;
 		vertical-align: top;
 	}
+
+	.gridContainer {
+		grid-template-columns: repeat(2, 1fr);
+	}
 }
 
 
@@ -84,6 +88,9 @@
 	.parallax {
 		background-image: none;
 	}
+	.gridContainer {
+		grid-template-columns: 1fr;
+	}
 	
 }
 
@@ -99,12 +106,12 @@
 
 @media screen and (orientation: landscape) {
 	.parallax {
-		background-size: 120vw auto;
+		background-size: 150vw auto;
 	}
 }
 
 @media screen and (orientation: portrait) {
 	.parallax {
-		background-size: auto 120vh;
+		background-size: auto 150vh;
 	}
 }

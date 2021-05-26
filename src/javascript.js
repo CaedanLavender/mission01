@@ -73,7 +73,7 @@ function parallaxRoutine() {
 	// only runs at certain width — primarily because my parallax function in it's current iteration doesn't look great on tall skinny display sizes :p
 	for (element of ParallaxList) {
 		if (window.innerWidth > 1200) {
-			parallaxAdjust(element, 3);
+			parallaxAdjust(element, 4);
 		} else {
 			element.style.backgroundPosition = 'center';
 		}
