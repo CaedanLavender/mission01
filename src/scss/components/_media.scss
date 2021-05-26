@@ -96,3 +96,15 @@
 		flex-direction: column;
 	}
 }
+
+@media screen and (orientation: landscape) {
+	.parallax {
+		background-size: 120vw auto;
+	}
+}
+
+@media screen and (orientation: portrait) {
+	.parallax {
+		background-size: auto 120vh;
+	}
+}

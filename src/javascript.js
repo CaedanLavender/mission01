@@ -184,4 +184,4 @@ for (i of navigationArray) {
 	document.getElementById("navTarget").innerHTML += (`<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`);
 }
 
-parallaxRoutine();
+parallaxRoutine(); 

@@ -88,6 +88,8 @@
 }
 
 .gotoButton {
+	display: flex;
+	align-items: center;
 	opacity: 1;
 	height: 3px;
 	width: 3px;
@@ -108,6 +110,10 @@
 	right: 35px;
 	color: $c-accent;
 	text-transform: uppercase;
+	background-color: $c-light;
+	padding: 0.5em 1em;
+	border-radius: 100px;
+	box-shadow: $c-dark-shadow 0 0 10px;
 }
 
 // .buttoncontainer {
