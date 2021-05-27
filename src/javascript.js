@@ -41,10 +41,10 @@ function scrollRoutine() {
 // TODO need to split into two functions, one to assign the class, and the other to detect which class should be applied
 function toggleTopButtonVisibility() {
 	if (window.scrollY > window.innerHeight / 2) {
-		toggleVisibility(backToTopButton, "show");
+		// toggleVisibility(backToTopButton, "show");
 		toggleVisibility(rightRailCluster, "show");
 	} else {
-		toggleVisibility(backToTopButton, "hide");
+		// toggleVisibility(backToTopButton, "hide");
 		toggleVisibility(rightRailCluster, "hide");
 	}
 }
@@ -63,6 +63,20 @@ function toggleVisibility(targetID, state) {
 }
 
 
+function toggleHamburger() {
+	const x = hamburgerInner;
+	const y = hamburgerButton;
+	const z = displayDim;
+	if (x.style.display === "none") {
+		x.style.display = "flex";
+		y.classList.add('permanent');
+		z.style.removeProperty("display");
+	} else {
+		x.style.display = "none";
+		y.classList.remove('permanent');
+		z.style.display = "none";
+	}
+}
 
 // ================================
 // Parallax functions
@@ -73,7 +87,7 @@ function parallaxRoutine() {
 	// only runs at certain width — primarily because my parallax function in it's current iteration doesn't look great on tall skinny display sizes :p
 	for (element of ParallaxList) {
 		if (window.innerWidth > 1200) {
-			parallaxAdjust(element, 4);
+			parallaxAdjust(element, 3);
 		} else {
 			element.style.backgroundPosition = 'center';
 		}
@@ -135,6 +149,9 @@ function leaveLanding() {
 // ================================
 
 // Sets the button with the ID 'backToTopButton' to a variable for use later
+const displayDim = document.getElementById('displayDim');
+const hamburgerButton = document.getElementById('hamburgerButton');
+const hamburgerInner = document.getElementById('hamburgerInnerTarget');
 const backToTopButton = document.getElementById('backToTopButton');
 const rightRailCluster = document.getElementById('rightRailTarget');
 
@@ -161,7 +178,9 @@ window.addEventListener("scroll", scrollRoutine);
 
 // const ulStruct = document.createElement('p');
 // ulStruct.appendChild(document.createElement('li'));
-const navigationArray = [["skills","Skills"],["projects", "Projects"],["future","Goals"],["contact","Contact"]];
+const navigationArray = [["top", "Welcome"],["skills","Skills"],["projects", "Projects"],["future","Goals"],["contact","Contact"]];
+const altNavigationArray = navigationArray.filter(x => x[1] !== "Welcome");
+console.log(altNavigationArray);
 
 //Top Navigation constructor
 // for (i of navigationArray) {
@@ -180,8 +199,145 @@ for (i of navigationArray) {
 }
 
 // Main navigation constructor
-for (i of navigationArray) {
+for (i of altNavigationArray) {
 	document.getElementById("navTarget").innerHTML += (`<a onclick="scrollToSection('${i[0]}')"><li>${i[1]}</li></a>`);
 }
 
+// Hamburger constructor
+for (i of navigationArray) {
+	document.getElementById('hamburgerInnerTarget').innerHTML += (
+		`<div class="hamburger__inner__item" onclick="scrollToSection('${i[0]}'); toggleHamburger();"><div>${i[1]}</div></div>`
+	)
+}
+
 parallaxRoutine(); 
+
+const projectsList = [{
+    "id": 1,
+    "name": "Calculator",
+    "link": "/projects/index.html",
+    "description": "A basic Javascript calculator with working buttons. Takes digit and operator input. AC and C buttons clear and backspace respectively.",
+    "picture": "images/tall.jpg",
+    "language": "Javascript"
+},
+{
+    "id": 2,
+    "name": "Quiz",
+    "link": "/projects/index.html",
+    "description": "A quiz game",
+    "picture": "images/red.jpg",
+    "language": "Javascript"
+}]
+
+for (i of projectsList) {
+	document.getElementById('projectsTarget').innerHTML += (
+		`<div class="gridCard" style="background-image: url('${i.picture}')">
+		<div class="card__title">
+			<div class="card__title__inner">${i.name}</div>
+		</div>
+		<div class="card__content">
+			<div class="card__content__upper">
+				<p>${i.description}</p>
+			</div>
+			<div class="card__content__lower">
+				<div class="card__content__lower__left">
+					<a href="${i.link}">Demo</a>
+				</div>
+				<div class="card__content__lower__right">
+					<div class="card__content__lower__right__button">${i.language}</div>
+				</div>
+			</div>
+		</div>
+	</div>`
+	)
+}
+
+const skillsList = [{
+	"id": 1,
+	"title": "HTML",
+	"titleColorClass": "htmlColor",
+	"list": [
+		"Basics",
+		"Best practicies for tags",
+		"linking to css and other resources"
+	]
+},
+{
+	"id": 2,
+	"title": "CSS",
+	"titleColorClass": "cssColor",
+	"list": [
+		"Specificity (try say that 10 times)",
+		"Units, and best practices (e.g. 'rem' for fonts, 'em' for padding/margin)",
+		"Flexbox and grid",
+		"Selectors and selector logic",
+		"Variables",
+		"Media Queries",
+		"SASS"
+	]
+},
+{
+	"id": 3,
+	"title": "JavaScript",
+	"titleColorClass": "javascriptColor",
+	"list": [
+		"Event listeners",
+		"Querying the page for elements, classes, and IDs",
+		"Adding, removing styles",
+		"Constructing repeating sections of html",
+		"Objects",
+		"Loops"
+	]
+}]
+
+for (i of skillsList) {
+	document.getElementById('skillsTarget').innerHTML += (
+		`<div class="card">
+		<h3 class="${i.titleColorClass}">${i.title}</h3>
+		<ul>
+			${i.list.map(x => "<li>" + x + "</li>").join("")}
+		</ul>
+	</div>`
+	)
+}
+
+const goalsList = [{
+	"id": 1,
+	"title": "Next",
+	"titleColorClass": "",
+	"list": [
+		"React",
+		"Databases"
+	]
+},
+{
+	"id": 2,
+	"title": "This year",
+	"titleColorClass": "",
+	"list": [
+		"Web apps",
+		"Electron",
+		"Create tools with Notion API"
+	]
+},
+{
+	"id": 3,
+	"title": "Someday",
+	"titleColorClass": "",
+	"list": [
+
+		"macOS apps (Swift)",
+		"Raspberry Pi"	
+	]
+}]
+
+for (i of goalsList) {
+	document.getElementById('goalsTarget').innerHTML += (
+		`<div class="card">
+			<h3>${i.title}</h3>
+				<ul>
+					${i.list.map(x => "<li>" + x + "</li>").join("")}
+				</ul>
+		</div>`
+	)
+}

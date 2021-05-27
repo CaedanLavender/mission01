@@ -184,19 +184,16 @@ section {
 	display: grid;
 	grid-template-columns: repeat(3, 1fr);
 	grid-auto-rows: 400px;
-	grid-row-gap: 1em;
-	grid-column-gap: 1em;
+	grid-row-gap: 2em;
+	grid-column-gap: 2em;
 	width: 100%;
 }
 
 .gridCard {
-	// background-color: red;
 	grid-column: span 1;
 	width: 100%;
 	height: 100%;
-	
 	background-color: white;
-	// border: 1px solid white;
 	border-radius: 6px;
 	padding: 0.5em;
 	background-position: center;
@@ -206,7 +203,10 @@ section {
 	display: flex;
 	flex-direction: column;
 	justify-content: space-between;
+	box-shadow: $c-dark-shadow 0px 0px 25px;
+	transition: transform 0.1s ease;
 	&:hover {
+		transform: scale(1.05);
 		.card__content {
 			opacity: 1;
 		}
@@ -219,10 +219,11 @@ section {
 		align-items: start;
 		&__inner {
 			color: $c-dark;
-			// text-shadow: 0 0 10px $c-dark-shadow;
+			box-shadow: $c-dark-shadow 0px 0px 10px;
 			background-color: $c-light;
 			padding: 0.5em 1em;
 			border-radius: 3px;
+			font-weight: 500;
 		}
 	}
 	cursor: default;
@@ -239,11 +240,13 @@ section {
 	padding: 0.5em;
 	font-size: 0.9rem;
 	transition: opacity 0.3s ease;
+	box-shadow: $c-dark-shadow 0px 0px 10px;
 	&__upper {
 		display: flex;
 		flex-direction: column;
 		justify-content: end;
 		width: 100%;
+		transition: opacity 0.3s ease 0.5s;
 		// flex: 85%;
 		p {
 			margin: 0;
@@ -289,8 +292,6 @@ section {
 	}
 }
 
-
-
 /*
 =======================================
 	Parallax
@@ -311,7 +312,6 @@ section {
 
 .paraCoffee {
 	background-image: url('../images/coffee.jpg');
-
 }
 
 .paraTall {
@@ -320,4 +320,8 @@ section {
 
 .paraRed {
 	background-image: url('../images/red.jpg');
+}
+
+.paraStreaks {
+	background-image: url('../images/streaks.jpg');
 }

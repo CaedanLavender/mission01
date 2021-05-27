@@ -1,0 +1,14 @@
+[{
+    "name": "Calculator",
+    "link": "/projects/index.html",
+    "description": "A basic Javascript calculator with working buttons. Takes digit and operator input. AC and C buttons clear and backspace respectively.",
+    "picture": "/images/project_calculator.jpg",
+    "language": "Javascript"
+},
+{
+    "name": "Quiz",
+    "link": "/projects/index.html",
+    "description": "A quiz game",
+    "picture": "/images/project_calculator.jpg",
+    "language": "Javascript"
+}]

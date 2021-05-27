@@ -11,6 +11,27 @@
 	}
 }
 
+@media screen and (max-width: 1500px) {
+	.gridContainer {
+		grid-template-columns: repeat(2, 1fr);
+		width: 80%;
+		margin: 0 auto;
+	}
+
+}
+
+@media screen and (max-width: 1300px) {
+	.gridContainer {
+		grid-template-columns: 1fr;
+		width: 40%;
+		min-width: 350px;
+		margin: 0 auto;
+	}
+
+}
+
+
+
 @media screen and (max-width: 1200px) {
 	#welcome {
 		p {
@@ -47,9 +68,8 @@
 		vertical-align: top;
 	}
 
-	.gridContainer {
-		grid-template-columns: repeat(2, 1fr);
-	}
+
+
 }
 
 
@@ -70,28 +90,25 @@
 	}
 }
 
-@media screen and (max-width: 800px) {
+@media screen and (min-width: 901px) {
+	.hamburger {
+		display: none;
+	}
+}
+
+@media screen and (max-width: 900px) {
 	nav {
 		display: none;
-		flex-direction: column-reverse;
-		gap: 1em;
-		ul {
-			flex-direction: column;
-			text-align: center;
-			width: 100%;
-		}
-		li:hover {
-			background-color: transparent;
-			color: $c-accent;
-		}
+	}
+	.rightRail {
+		display: none;
 	}
 	.parallax {
 		background-image: none;
 	}
-	.gridContainer {
-		grid-template-columns: 1fr;
+	section {
+		padding: 5em 2em 10em;
 	}
-	
 }
 
 @media screen and (max-width: 500px) {
@@ -106,12 +123,12 @@
 
 @media screen and (orientation: landscape) {
 	.parallax {
-		background-size: 150vw auto;
+		background-size: 120vw auto;
 	}
 }
 
 @media screen and (orientation: portrait) {
 	.parallax {
-		background-size: auto 150vh;
+		background-size: auto 120vh;
 	}
 }
