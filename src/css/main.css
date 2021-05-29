@@ -198,7 +198,7 @@ section {
   background-color: white;
   border-radius: 6px;
   padding: 0.5em;
-  background-position: center;
+  background-position: top;
   background-repeat: no-repeat;
   background-size: cover;
   overflow: hidden;
@@ -271,6 +271,8 @@ section {
   border-right: 1px solid #dadada;
 }
 .card__content__lower__left a {
+  font-weight: 500;
+  text-transform: uppercase;
   padding: 0.5em 1em;
 }
 .card__content__lower__left a:hover {

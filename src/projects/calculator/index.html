@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="main.css">
+    <title>Caedan's Projects - Calculator</title>
+</head>
+<body>
+    <p id=inputTarget></p>
+    <div class="container">
+        <div class="single" onclick="clearInput()">AC</div>
+        <div class="single"onclick="backspace()">C</div>
+        <div class="single"></div>
+        <div class="single"onclick="addOperator('divide')">/</div>
+
+        <div class="single"onclick="addDigit(7)">7</div>
+        <div class="single"onclick="addDigit(8)">8</div>
+        <div class="single"onclick="addDigit(9)">9</div>
+        <div class="single"onclick="addOperator('multiply')">X</div>
+
+        <div class="single"onclick="addDigit(4)">4</div>
+        <div class="single"onclick="addDigit(5)">5</div>
+        <div class="single"onclick="addDigit(6)">6</div>
+        <div class="single"onclick="addOperator('minus')">-</div>
+
+        <div class="single"onclick="addDigit(1)">1</div>
+        <div class="single"onclick="addDigit(2)">2</div>
+        <div class="single"onclick="addDigit(3)">3</div>
+        <div class="tall"onclick="addOperator('add')">+</div>
+
+        <div class="single"onclick="addDigit(0)">0</div>
+        <div class="single"onclick="addDigit('.')">.</div>
+        <div class="single"onclick="calculateIt()">=</div>
+
+    </div>
+</body>
+<script>
+    const label = document.getElementById('inputTarget');
+    function addDigit(num) {
+        label.innerHTML += (num);
+    }
+    function addOperator (op) {
+        let operatorReturn = null;
+        console.log(op)
+            if (op=="add") {
+                operatorReturn = "+"
+            } else if (op=="minus") {
+                operatorReturn = "-"
+            } else if (op=="multiply") {
+                operatorReturn = "*"
+            } else if (op=="divide") {
+                operatorReturn = "/"
+            }
+        label.innerHTML += operatorReturn;
+    }
+    function calculateIt() { 
+        console.log(eval(label.innerHTML))
+        label.innerHTML = eval(label.innerHTML);
+    }
+
+    function clearInput() {
+        label.innerHTML = "";
+    }
+
+    function backspace() {
+        label.innerHTML = label.innerHTML.slice(0,label.innerHTML.length-1);
+    }
+</script>
+</html>

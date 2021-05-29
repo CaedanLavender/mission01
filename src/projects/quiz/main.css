@@ -1,0 +1,38 @@
+* {
+    box-sizing: border-box;
+}
+
+.choicesContainer {
+    width: 500px;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(3, 1fr);
+}
+
+.choicesContainer > * {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.buttonContainer {
+    width: 500px;
+    padding: 1em 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 1em;
+}
+
+.buttonContainer button {
+    width: 200px;
+    padding: 0.5em 1em;
+}
+
+#outcomeLabel {
+    font-size: 2em;
+    width: 500px;
+    text-align: center;
+}

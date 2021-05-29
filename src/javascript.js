@@ -215,9 +215,9 @@ parallaxRoutine();
 const projectsList = [{
     "id": 1,
     "name": "Calculator",
-    "link": "/projects/index.html",
+    "link": "./projects/calculator/index.html",
     "description": "A basic Javascript calculator with working buttons. Takes digit and operator input. AC and C buttons clear and backspace respectively.",
-    "picture": "images/tall.jpg",
+    "picture": "images/project_calculator.png",
     "language": "Javascript"
 },
 {
@@ -241,7 +241,7 @@ for (i of projectsList) {
 			</div>
 			<div class="card__content__lower">
 				<div class="card__content__lower__left">
-					<a href="${i.link}">Demo</a>
+					<a href="${i.link}" target="_blank">Demo</a>
 				</div>
 				<div class="card__content__lower__right">
 					<div class="card__content__lower__right__button">${i.language}</div>
