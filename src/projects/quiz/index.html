@@ -5,7 +5,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="main.css">
-    <title>Caedan's Projects - </title>
+    <title>Caedan's Projects - Quiz</title>
 </head>
 <body>
     <h1>Quiz</h1>
@@ -16,16 +16,16 @@
     <div class="choicesContainer">
         <label for="choiceA">A</label>
         <input type="radio" id="choiceA" name="choices" value="a">
-        <p id="answerA">test</p>
+        <p id="answerA"></p>
         <label for="choiceB">B</label>
         <input type="radio" id="choiceB" name="choices" value="b">
-        <p id="answerB">test</p>
+        <p id="answerB"></p>
         <label for="choiceC">C</label>
         <input type="radio" id="choiceC" name="choices" value="b">
-        <p id="answerC">test</p>
+        <p id="answerC"></p>
         <label for="choiceD">D</label>
         <input type="radio" id="choiceD" name="choices" value="c">
-        <p id="answerD">test</p>
+        <p id="answerD"></p>
     </div>
     <div class="buttonContainer">
         <button id="submitButton" onclick="checkAnswer()">Submit</button>
@@ -105,7 +105,6 @@ let nextQuestion = 2;
 let score = 0;
 
 function loadQuestion(questionID) {
-    document.querySelector('input[name="choices"]:checked').checked = false;
     lockButtons(false);
     if (nextQuestion>=questionList.length){nextButton.innerHTML = "View Score"};
     const instanceQuestion = questionList.find(x => x.id === questionID);
@@ -136,6 +135,8 @@ function lockButtons(state) {
 function incrementQuestion() {
     console.log(nextQuestion);
     if (nextQuestion < questionList.length+1) {
+        nextButton.innerHTML = "Next Question"
+        document.querySelector('input[name="choices"]:checked').checked = false;
         loadQuestion(nextQuestion);
         nextQuestion++;
         outcomeLabel.innerHTML = "";

@@ -223,10 +223,18 @@ const projectsList = [{
 {
     "id": 2,
     "name": "Quiz",
-    "link": "/projects/index.html",
-    "description": "A quiz game",
-    "picture": "images/red.jpg",
+    "link": "./projects/quiz/index.html",
+    "description": "A simple multi-choice 'general knowledge' quiz written in Javascript. It uses an array of objects to populate the questions; therefore, it can be easily extended with more questions.",
+    "picture": "images/project_quiz.png",
     "language": "Javascript"
+},
+{
+    "id": 3,
+    "name": "coming soon...",
+    "link": "#",
+    "description": "I only have two projects right now, three cards looks better than two :)",
+    "picture": "images/coming_soon.jpg",
+    "language": "none"
 }]
 
 for (i of projectsList) {
@@ -244,7 +252,7 @@ for (i of projectsList) {
 					<a href="${i.link}" target="_blank">Demo</a>
 				</div>
 				<div class="card__content__lower__right">
-					<div class="card__content__lower__right__button">${i.language}</div>
+					<div class="card__content__lower__right__button--${(i.language).toLowerCase()}">${i.language}</div>
 				</div>
 			</div>
 		</div>

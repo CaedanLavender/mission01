@@ -1,23 +1,26 @@
 * {
     box-sizing: border-box;
+    font-family: sans-serif;
 }
 
 .choicesContainer {
-    width: 500px;
+    margin: 2em 0;
+    width: 400px;
+    height: 200px;
     display: grid;
     grid-auto-flow: column;
     grid-template-columns: repeat(4, 1fr);
-    grid-template-rows: repeat(3, 1fr);
+    grid-template-rows: 1fr 1fr 4fr;
 }
 
 .choicesContainer > * {
     display: flex;
-    align-items: center;
+    /* align-items: center; */
     justify-content: center;
 }
 
 .buttonContainer {
-    width: 500px;
+    width: 400px;
     padding: 1em 0;
     display: flex;
     flex-direction: column;
@@ -27,12 +30,12 @@
 }
 
 .buttonContainer button {
-    width: 200px;
+    width: 150px;
     padding: 0.5em 1em;
 }
 
 #outcomeLabel {
     font-size: 2em;
-    width: 500px;
+    width: 400px;
     text-align: center;
 }

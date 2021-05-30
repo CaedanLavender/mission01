@@ -281,7 +281,12 @@ section {
 .card__content__lower__right {
   border-left: 1px solid #dadada;
 }
-.card__content__lower__right__button {
+.card__content__lower__right__button--none {
+  background-color: lightgray;
+  padding: 0.5em 1em;
+  border-radius: 50px;
+}
+.card__content__lower__right__button--javascript {
   background-color: #fcdc00;
   padding: 0.5em 1em;
   border-radius: 50px;

@@ -286,10 +286,20 @@ section {
 		&__right {
 			border-left: 1px solid $c-offLight;
 			&__button {
-				background-color: $c-javascript;
-				padding: 0.5em 1em;
-				border-radius: 50px;
+				&--none {
+					background-color: lightgray;
+					padding: 0.5em 1em;
+					border-radius: 50px;
+				}
+				&--javascript {
+					background-color: $c-javascript;
+					padding: 0.5em 1em;
+					border-radius: 50px;
+				}
+
 			}
+
+
 		}
 	}
 }
