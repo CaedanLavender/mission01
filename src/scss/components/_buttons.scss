@@ -42,6 +42,7 @@
 	flex-direction: column;
 	justify-content: center;
 	align-items: center;
+	user-select: none;
 	&:hover {
 		.gotoContainer {
 			opacity: 1;

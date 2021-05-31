@@ -420,13 +420,6 @@ nav ul li {
   transition: opacity 0.3s ease;
 }
 
-.mainNav {
-  color: red;
-}
-.mainNav__Outer {
-  color: red;
-}
-
 /* Headings */
 :is(h1, h2, h3, h4, h5) {
   margin: 0.75em 0 0;
@@ -551,6 +544,7 @@ li ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  user-select: none;
 }
 .rightRail:hover .gotoContainer {
   opacity: 1;
