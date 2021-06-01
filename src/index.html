@@ -5,26 +5,31 @@
 	<meta http-equiv="X-UA-Compatible" content="IE=edge">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
 	<link rel="stylesheet" href="css/main.css"/>
-	<title>Landing page v0.2.4</title>
+	<title>Landing page v0.2.99</title>
 </head>
 
 <body>
-	<div id="displayDim" style="display: none;" onclick="toggleHamburger()"></div>
-	<div class="hamburger">
-		<div class="hamburger__button" id="hamburgerButton" onclick="toggleHamburger()"><img src="icons/menu.svg"></div>
-		<div class="hamburger__inner" style="display: none;" id="hamburgerInnerTarget">
 
+	<div id="displayDim" style="display: none;" onclick="toggleHamburger()"></div>
+
+	<div class="hamburger">
+		<div class="hamburger__button" id="hamburgerButton" onclick="toggleHamburger()">
+			<img src="icons/menu.svg">
+		</div>
+		<div class="hamburger__inner" style="display: none;" id="hamburgerInnerTarget">
+			<!-- Navigation structure built by javascript -->
 		</div>
 	</div>
+
 	<div class="rightRail">
 		<div class="gotoContainer hide" id="rightRailTarget">
 			<!-- Navigation structure built by javascript -->
 		</div>
-		<!-- <div id="backToTopButton" class="circleButton hide" onclick="scrollToSection('landing')"><img src="icons/arrow-up.svg"></div> -->
 	</div>
+
 	<header id="top" class="parallax paraSnow">
 
-			<nav class="mainNav" id="outerNavTarget">
+			<nav id="outerNavTarget">
 				<ul id="navTarget">
 
 				</ul>
@@ -113,20 +118,10 @@
 
 	<footer>
 		<span>Caedan Lavender | 2021</span>
-		<span>Mission 1</span>
-		<span>v0.2.4</span>
+		<span>Mission 1 & 2</span>
+		<span>v0.2.99</span>
 	</footer>
 
 </body>
-<!-- <script src="data/projects.json"></script> -->
 <script src="javascript.js"></script>
 </html>
-
-<!-- 
-	TODO
-	- [x]	Add temporary highlight when scrollto is triggered (highlight on the h1/2/3 tag)
-			- Tried this and didn't like it
-	- [ ]	Hamburger menu for nav
-	- [x]	Redo margin and padding with variables and em
-	- [ ]	Change parallax mechansim to only apply when elements are in view
--->

@@ -5,12 +5,6 @@
 @use "abstracts" as *;
 @use "components" as *;
 
-/*
-=======================================
-	Variable Declarations
-=======================================
-*/
-
 ::selection {
 	background: $c-anti-light;
 }

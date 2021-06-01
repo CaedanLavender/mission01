@@ -96,14 +96,6 @@ section {
   background-color: #ffec96;
 }
 
-.headerTransition {
-  transition: all 1s cubic-bezier(0.48, 0.4, 0.3, 1);
-}
-
-.navTransition * {
-  transition: all 0.5s ease;
-}
-
 #landingHeading {
   position: absolute;
   display: flex;
@@ -345,9 +337,10 @@ nav ul {
 }
 nav ul li {
   margin: 1em;
+  padding: 1em 2em;
   border: 2px solid transparent;
   transition: all 0.2s ease;
-  transition-property: transform, box-shadow;
+  transition-property: color, box-shadow, border;
   text-decoration: none;
   color: #0a0a0a;
   font-family: "Roboto";
@@ -359,181 +352,12 @@ nav ul li {
   cursor: pointer;
   border-radius: 100px;
 }
-
-.navInitial {
-  width: 100%;
-  padding: 75px;
-}
-.navInitial:hover li {
-  border: 2px solid transparent;
-  box-shadow: rgba(10, 10, 10, 0.2) 0px 0px 25px;
-}
-.navInitial ul li {
-  padding: 2em;
-}
-.navInitial ul li:hover {
-  transform: scale(1.15);
-  border-color: #5522FA;
-  background-color: #5522FA;
-  color: white;
-  box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 50px;
-}
-
-.mainNav ul li {
-  padding: 1em 2em;
-  transition: all 0.2s ease;
-  transition-property: color, box-shadow, border;
-}
-.mainNav ul li:hover {
+nav ul li:hover {
   color: #5522FA;
   box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 25px;
   border-color: #5522FA;
 }
 
-.mainHeader {
-  height: 100px;
-}
-
-.landingBelow {
-  position: absolute;
-  bottom: 0;
-  height: 20vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex: 30%;
-}
-
-.hideAfterLanding {
-  opacity: 1;
-  transition: all 0.3s ease;
-}
-
-.visibleInLanding {
-  opacity: 1;
-  visibility: visible;
-  transition: opacity 0.3s ease;
-}
-
-.hiddenFromLanding {
-  opacity: 0;
-  transition: opacity 0.3s ease;
-}
-
-/* Headings */
-:is(h1, h2, h3, h4, h5) {
-  margin: 0.75em 0 0;
-  padding: 0.25em 0;
-  font-family: "Signika";
-}
-
-:is(h1, h2, h3, h4, h5) a {
-  color: #0a0a0a;
-  transition: color 0.3s ease 0s;
-}
-
-:is(h1, h2, h3, h4, h5) a:hover {
-  color: #5522FA;
-}
-
-h1 {
-  font-size: 4rem;
-  font-weight: 700;
-}
-
-h2 {
-  font-size: 3rem;
-  font-weight: 600;
-}
-
-h3 {
-  font-size: 2rem;
-  font-weight: 600;
-}
-
-h4 {
-  font-size: 1.5rem;
-  /* font-family: $f-body; */
-  font-weight: 600;
-}
-
-h5 {
-  font-size: 1.25rem;
-  font-family: "Roboto";
-}
-
-/* Paragraph */
-p {
-  margin: 1em 0;
-  line-height: 1.5em;
-  word-spacing: 0.1rem;
-  font-weight: 300;
-}
-
-smalltext {
-  font-size: 0.9em;
-}
-
-.subTitle {
-  font-size: 1.5rem;
-  font-weight: 300;
-  font-style: italic;
-}
-
-.textCenter {
-  text-align: center;
-}
-
-/* Links */
-a {
-  color: #0a0a0a;
-  transition: color 0.3s ease 0s;
-}
-a:hover {
-  color: #5522FA;
-}
-
-/* Lists */
-ul {
-  margin: 1em 0;
-  padding-left: 3ch;
-}
-
-li {
-  padding: 0.25rem 0;
-}
-li ul {
-  margin: 0;
-}
-
-/*
-=======================================
-	Navigation Button
-=======================================
-*/
-.button {
-  padding: 0.75em 2em;
-  border: none;
-  border-radius: 3px;
-  background-color: #7b54fb;
-  color: #0a0a0a;
-  font-family: "Roboto";
-  font-size: 1em;
-  font-weight: 500;
-  transition: all 0.2s ease 0s;
-  transition-property: background-color, box-shadow, transform;
-}
-.button:hover {
-  background-color: #ffde49;
-  box-shadow: rgba(255, 236, 150, 0.4) 0px 0px 25px;
-  cursor: pointer;
-}
-
-/*
-=======================================
-	Back to top button
-=======================================
-*/
 .rightRail {
   position: fixed;
   z-index: 80;
@@ -611,43 +435,6 @@ li ul {
   padding: 0.5em 1em;
   border-radius: 100px;
   box-shadow: rgba(10, 10, 10, 0.2) 0 0 10px;
-}
-
-#returnToLandingButton {
-  top: 5vh;
-}
-
-#backToTopButton {
-  bottom: 5vh;
-}
-
-.circleButton {
-  position: absolute;
-  bottom: 10vh;
-  height: 80px;
-  width: 80px;
-  background-color: #5522FA;
-  box-shadow: rgba(123, 84, 251, 0.4) 0px 0px 25px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  border-radius: 50%;
-  color: #fafafa;
-  cursor: pointer;
-  transition: all 0.2s ease 0s;
-  transition-property: box-shadow, background-color, transform, opacity, visibility;
-}
-.circleButton img {
-  height: 75%;
-  filter: invert(1);
-}
-.circleButton:hover {
-  box-shadow: rgba(255, 236, 150, 0.4) 0px 0px 25px;
-  background-color: #ffde49;
-  transform: scale(1.1);
-}
-.circleButton:hover img {
-  filter: invert(0);
 }
 
 .hide {
@@ -734,6 +521,92 @@ li ul {
   opacity: 0.3;
   background-color: #0a0a0a;
   z-index: 98;
+}
+
+/* Headings */
+:is(h1, h2, h3, h4, h5) {
+  margin: 0.75em 0 0;
+  padding: 0.25em 0;
+  font-family: "Signika";
+}
+
+:is(h1, h2, h3, h4, h5) a {
+  color: #0a0a0a;
+  transition: color 0.3s ease 0s;
+}
+
+:is(h1, h2, h3, h4, h5) a:hover {
+  color: #5522FA;
+}
+
+h1 {
+  font-size: 4rem;
+  font-weight: 700;
+}
+
+h2 {
+  font-size: 3rem;
+  font-weight: 600;
+}
+
+h3 {
+  font-size: 2rem;
+  font-weight: 600;
+}
+
+h4 {
+  font-size: 1.5rem;
+  /* font-family: $f-body; */
+  font-weight: 600;
+}
+
+h5 {
+  font-size: 1.25rem;
+  font-family: "Roboto";
+}
+
+/* Paragraph */
+p {
+  margin: 1em 0;
+  line-height: 1.5em;
+  word-spacing: 0.1rem;
+  font-weight: 300;
+}
+
+smalltext {
+  font-size: 0.9em;
+}
+
+.subTitle {
+  font-size: 1.5rem;
+  font-weight: 300;
+  font-style: italic;
+}
+
+.textCenter {
+  text-align: center;
+}
+
+/* Links */
+a {
+  color: #0a0a0a;
+  transition: color 0.3s ease 0s;
+}
+a:hover {
+  color: #5522FA;
+}
+
+/* Lists */
+ul {
+  margin: 1em 0;
+  padding-left: 3ch;
+}
+
+li {
+  padding: 0.25rem 0;
+}
+li ul {
+  margin: 0;
 }
 
 .formSection {
@@ -915,11 +788,6 @@ textarea[id=message] {
     background-size: auto 120vh;
   }
 }
-/*
-=======================================
-	Variable Declarations
-=======================================
-*/
 ::selection {
   background: #ffec96;
 }

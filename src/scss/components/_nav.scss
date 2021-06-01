@@ -3,7 +3,6 @@
 nav {
 	width: 100%;
 	max-width: $size-contentLimit;
-	// border: 1px solid red;
 	display: flex;
 	justify-content: center;
 	align-items: center;
@@ -12,20 +11,18 @@ nav {
 		box-shadow: $c-dark-shadow 0px 0px 7px;
 	}
 	ul {
-		// height: 100vh;
-		// max-width: $size-contentLimit;
 		width: 100%;
 		margin: 0;
 		padding: 0 2em;
 		display: flex;
 		justify-content: space-between;
 		align-items: center;
-		// gap: 3em;
 		li {
 			margin: 1em;
+			padding: 1em 2em;
 			border: 2px solid transparent;
 			transition: all 0.2s ease;
-			transition-property: transform, box-shadow;
+			transition-property: color, box-shadow, border;
 			text-decoration: none;
 			color: $c-dark;
 			font-family: $f-body;
@@ -34,52 +31,8 @@ nav {
 			display: flex;
 			justify-content: center;
 			align-items: center;
-			// transition: transform 0.1s ease;
 			cursor: pointer;
 			border-radius: 100px;
-			// &:hover {
-
-			// }
-		}
-	}
-}
-
-.navInitial {
-	width: 100%;
-	padding: 75px;
-	&:hover li {
-		border: 2px solid transparent;
-		box-shadow: $c-dark-shadow 0px 0px 25px;
-	}
-	ul{
-		li{
-			// border: 2px solid $c-dark;
-			// height: 80px;
-			padding: 2em;
-			// transition: transform 0.1s ease;
-			&:hover {
-				transform: scale(1.15);
-				border-color: $c-accent;
-				background-color: $c-accent;
-				color: white;
-				box-shadow: $c-accent-light-transparent 0px 0px 50px;
-			}
-		}
-	}
-}
-
-.mainNav {
-	// max-width: $size-contentLimit;
-	// justify-content: left;
-
-	ul {
-		li {
-			// border-radius: 0;
-			// height: 80px;
-			// border: 2px solid transparent;
-			padding: 1em 2em;
-			transition: all 0.2s ease;
-			transition-property: color, box-shadow, border;
 			&:hover {
 				color: $c-accent;
 				box-shadow: $c-accent-light-transparent 0px 0px 25px;
@@ -89,41 +42,173 @@ nav {
 	}
 }
 
-.mainHeader {
-	// background-color: $c-accent;
-	height: 100px;
+.rightRail {
+	position: fixed;
+	z-index: 80;
+	right: 1vw;
+	width: 9vw;
+	height: 100%;
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	user-select: none;
+	&:hover {
+		.gotoContainer {
+			opacity: 1;
+		}
+		.gotoButton {
+		background-color: transparent;
+		height: 20px;
+		width: 20px;
+		border: 3px solid $c-dark;
+		border-radius: 50%;
+		}
+	}
 }
 
-.landingBelow {
-	position: absolute;
-	bottom: 0;
-	height: 20vh;
+.gotoContainer {
+	opacity: 0.5;
+	background-color: $c-light;
+	border: 1px solid white;
+	box-shadow: $c-dark-shadow 0 0 10px;
+	width: 40px;
+	border-radius: 20px;
+	transition: opacity 0.3s ease;
+}
+
+.gotoButtonOuter {
+	cursor: pointer;
+	width: 100%;
+	height: 60px;
 	display: flex;
 	justify-content: center;
 	align-items: center;
-	flex: 30%;
+	overflow: visible;
+	&:hover .gotoButton{
+		border-color: $c-accent;
+		transform: scale(1.5);
+		background-color: $c-accent;
+		box-shadow: $c-accent-light 0 0 10px;
+		.gotoLabel {
+			visibility: visible;
+		}
+	}
 }
 
-.hideAfterLanding {
+.gotoButton {
+	display: flex;
+	align-items: center;
 	opacity: 1;
-	transition: all 0.3s ease;
+	height: 3px;
+	width: 3px;
+	border: 3px solid $c-dark;
+	border-radius: 50%;
+	transition: all 0.1s ease-out;
+	transition-property: transform, height, width;
 }
 
-.visibleInLanding {
-	opacity: 1;
-	visibility:visible;
-	transition: opacity 0.3s ease;
+.gotoLabel {
+	visibility: hidden;
+	font-size: 0.6em;
+	font-weight: 500;
+	position: absolute;
+	width: max-content;
+	right: 35px;
+	color: $c-accent;
+	text-transform: uppercase;
+	background-color: $c-light;
+	padding: 0.5em 1em;
+	border-radius: 100px;
+	box-shadow: $c-dark-shadow 0 0 10px;
 }
 
-.hiddenFromLanding {
+.hide {
 	opacity: 0;
-	transition: opacity 0.3s ease;
-	// visibility:hidden;
+	visibility: hidden;
 }
 
-// .mainNav {
-// 	color: red;
-// 	&__Outer {
-// 		color:red;
-// 	}
-// }
+.show {
+	opacity: 1;
+	visibility: visible;
+}
+
+.show.gotoContainer {
+	opacity: 0.5;
+}
+
+
+
+.hamburger {
+	display: flex;
+	align-items: flex-end;
+	flex-direction: column;
+	gap: 1em;
+	position: fixed;
+	z-index: 99;
+	top: 1em;
+	right: 1em;
+	&__button {
+		width: 60px;
+		height: 60px;
+		border-radius: 30px;
+		padding: 0.5em;
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		background-color: $c-light;
+		cursor: pointer;
+		box-shadow: $c-dark-shadow 0 0 10px;
+		transition: all 0.2s ease;
+		transition-property: background-color, box-shadow;
+		user-select: none;
+		&:hover {
+			background-color: $c-accent;
+			box-shadow: $c-accent-light-transparent 0px 0px 25px;
+		}
+
+	}
+	&__inner {
+		width: 300px;
+		// height: 500px;
+		display: flex;
+		flex-direction: column;
+		gap: 1em;
+		opacity: 1;
+		&__item {
+			font-weight: 500;
+			text-transform: uppercase;
+			display: flex;
+			align-items: center;
+			height: 60px;
+			border: 2px solid white;
+			border-radius: 100px;
+			padding: 0.1em 30px;
+			background-color: $c-light;
+			box-shadow: $c-dark-shadow 0 0 10px;
+			transition: all 0.2s ease;
+			transition-property: color, box-shadow, border;
+			&:hover {
+				color: $c-accent;
+				box-shadow: $c-accent-light-transparent 0px 0px 25px;
+				border-color: $c-accent;
+			}
+			div {
+				display: inline;
+			}
+		}
+	}
+}
+
+.permanent {
+	background-color: $c-accent !important;
+}
+
+#displayDim {
+	position: fixed;
+	height: 110vh;
+	width: 110vw;
+	opacity: 0.3;
+	background-color: $c-dark;
+	z-index: 98;
+}
