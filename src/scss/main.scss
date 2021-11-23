@@ -2,7 +2,7 @@
 @use "components" as *;
 
 ::selection {
-	background: $c-anti-light;
+	background: $c-anti-light-transparent;
 }
 
 /* Resets global margin and padding to be 0 — allows for greater control, although I need to declare a few things to get started, the compromise is worth it :) */
